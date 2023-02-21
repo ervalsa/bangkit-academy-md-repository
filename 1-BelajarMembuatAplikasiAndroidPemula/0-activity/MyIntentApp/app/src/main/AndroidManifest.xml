@@ -12,6 +12,9 @@
         android:theme="@style/Theme.MyIntentApp"
         tools:targetApi="31">
         <activity
+            android:name=".MoveWithObjectActivity"
+            android:exported="false" />
+        <activity
             android:name=".MoveWithDataActivity"
             android:exported="false" />
         <activity
