@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ExamTest" tests="28" skipped="0" failures="0" errors="0" timestamp="2023-02-20T19:35:34" hostname="palsaloid" time="15.03">
+  <properties/>
+  <testcase name="Latihan 1" classname="ExamTest" time="0.009"/>
+  <testcase name="Latihan 1" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 1" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 1" classname="ExamTest" time="0.001"/>
+  <testcase name="Latihan 1" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 1" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 1" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 1" classname="ExamTest" time="0.001"/>
+  <testcase name="Latihan 1" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 1" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 2" classname="ExamTest" time="0.001"/>
+  <testcase name="Latihan 2" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 2" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 3" classname="ExamTest" time="0.001"/>
+  <testcase name="Latihan 3" classname="ExamTest" time="0.001"/>
+  <testcase name="Latihan 3" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 3" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 3" classname="ExamTest" time="0.001"/>
+  <testcase name="Latihan 4" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 4" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 4" classname="ExamTest" time="0.001"/>
+  <testcase name="Latihan 4" classname="ExamTest" time="0.0"/>
+  <testcase name="Latihan 5" classname="ExamTest" time="3.003"/>
+  <testcase name="Latihan 5" classname="ExamTest" time="3.005"/>
+  <testcase name="Latihan 5" classname="ExamTest" time="3.002"/>
+  <testcase name="Latihan 5" classname="ExamTest" time="2.001"/>
+  <testcase name="Latihan 5" classname="ExamTest" time="2.002"/>
+  <testcase name="Latihan 5" classname="ExamTest" time="2.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

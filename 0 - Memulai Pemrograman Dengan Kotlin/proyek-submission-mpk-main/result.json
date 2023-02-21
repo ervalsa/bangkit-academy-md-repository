@@ -1,0 +1,27 @@
+[
+  {
+    "allExamPassed": true,
+    "exam": "Latihan 1",
+    "errors": []
+  },
+  {
+    "allExamPassed": true,
+    "exam": "Latihan 2",
+    "errors": []
+  },
+  {
+    "allExamPassed": true,
+    "exam": "Latihan 3",
+    "errors": []
+  },
+  {
+    "allExamPassed": true,
+    "exam": "Latihan 4",
+    "errors": []
+  },
+  {
+    "allExamPassed": true,
+    "exam": "Latihan 5",
+    "errors": []
+  }
+]

@@ -26,7 +26,11 @@ package com.dicoding.exam.latihan4
  *  value: 100Ltr
  *
  */
-fun vehicle() = mapOf<String, String>()
+fun vehicle() = mapOf(
+    "type" to "motorcycle",
+    "maxSpeed" to "230Km/s",
+    "maxTank" to "100Ltr"
+)
 
 fun main() {
     println("""
