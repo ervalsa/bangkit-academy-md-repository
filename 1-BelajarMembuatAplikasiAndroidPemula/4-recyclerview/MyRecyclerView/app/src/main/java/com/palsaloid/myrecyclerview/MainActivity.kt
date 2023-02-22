@@ -2,6 +2,7 @@ package com.palsaloid.myrecyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -23,8 +24,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun showRecyclerList() {
         rvHeroes.layoutManager = LinearLayoutManager(this)
-        val listHeroeAdapter = ListHeroAdapter(list)
-        rvHeroes.adapter = listHeroeAdapter
+        val listHeroAdapter = ListHeroAdapter(list)
+        rvHeroes.adapter = listHeroAdapter
+
+        listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Hero) {
+                showSelectedHero(data)
+            }
+        })
     }
 
     private fun getListHeroes(): ArrayList<Hero> {
@@ -39,5 +46,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         return listHero
+    }
+
+    private fun showSelectedHero(hero: Hero) {
+        Toast.makeText(this, "Kamu memiliih " + hero.name, Toast.LENGTH_SHORT).show()
     }
 }
