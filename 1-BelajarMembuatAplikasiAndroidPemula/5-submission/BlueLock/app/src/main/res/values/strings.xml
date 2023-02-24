@@ -13,4 +13,5 @@
     <string name="hair_color">Hair Color</string>
     <string name="eye_color">Eye Color</string>
     <string name="biological_information">Biological Information</string>
+    <string name="share">Share</string>
 </resources>

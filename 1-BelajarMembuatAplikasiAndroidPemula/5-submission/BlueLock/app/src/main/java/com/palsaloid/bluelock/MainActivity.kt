@@ -43,19 +43,6 @@ class MainActivity : AppCompatActivity() {
         binding.btnHamburger.setOnClickListener {
             Toast.makeText(this, "Hamburger Button", Toast.LENGTH_SHORT).show()
         }
-
-        binding.btnStartWatch.setOnClickListener {
-            Toast.makeText(this, "Watching on Netflix Now", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.btnShare.setOnClickListener {
-            val text = "Blue Lock Origin"
-            val shareIntent = Intent()
-            shareIntent.action = Intent.ACTION_SEND
-            shareIntent.type = "text/plain"
-            shareIntent.putExtra(Intent.EXTRA_TEXT, text)
-            startActivity(Intent.createChooser(shareIntent, "Share via"))
-        }
     }
 
     private fun showRecycler() {

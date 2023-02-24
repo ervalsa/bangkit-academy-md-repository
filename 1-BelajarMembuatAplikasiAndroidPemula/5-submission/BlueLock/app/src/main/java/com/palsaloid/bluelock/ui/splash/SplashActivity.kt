@@ -31,6 +31,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val timer = 1700L
+        const val timer = 2000L
     }
 }

@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/img_photo"
-            android:layout_width="230dp"
-            android:layout_height="450dp"
+            android:layout_width="190dp"
+            android:layout_height="350dp"
             android:scaleType="centerCrop"
             tools:src="@drawable/itoshi_rin"
             app:layout_constraintBottom_toBottomOf="parent"
