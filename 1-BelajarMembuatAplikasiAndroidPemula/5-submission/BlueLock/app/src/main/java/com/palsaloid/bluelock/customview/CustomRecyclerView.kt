@@ -12,12 +12,12 @@ class CustomRecyclerView(
 
     fun <T : ViewHolder> initialize(newAdapter: Adapter<T>) {
         layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
-        newAdapter.registerAdapterDataObserver(object : AdapterDataObserver() {
+        newAdapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
             override fun onChanged() {
                 post {
                     val sidePadding = (width / 2) - (getChildAt(0).width / 2)
-                    setPadding(sidePadding, 0 , sidePadding, 0)
-                    scrollToPosition(0)
+                    setPadding(sidePadding, 0, sidePadding, 0)
+                    scrollToPosition(1)
                     addOnScrollListener(object : OnScrollListener() {
                         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                             super.onScrolled(recyclerView, dx, dy)
@@ -35,7 +35,7 @@ class CustomRecyclerView(
             (0 until childCount).forEach { position ->
                 val child = getChildAt(position)
                 val childCenterX = (child.left + child.right) / 2
-                val scaleValue = getGaussianScale(childCenterX, 1f, 1f, 150.toDouble())
+                val scaleValue = getGaussianScale(childCenterX, 0.5f, 0.75f, 100.toDouble())
                 child.scaleX = scaleValue
                 child.scaleY = scaleValue
             }
@@ -44,19 +44,18 @@ class CustomRecyclerView(
 
     private fun getGaussianScale(
         childCenterX: Int,
-        minScaleOffset: Float,
+        minScaleOffest: Float,
         scaleFactor: Float,
         spreadFactor: Double
-    ) : Float {
+    ): Float {
         val recyclerCenterX = (left + right) / 2
-        return (Math.pow(
-            Math.E,
-            -Math.pow(
-                childCenterX - recyclerCenterX.toDouble(),
+        return (Math.pow(Math.E,
+            -Math.pow(childCenterX - recyclerCenterX.toDouble(),
                 2.toDouble()) / (2 * Math.pow(
                     spreadFactor,
-                2.toDouble()
-            ))
-        ) * scaleFactor + minScaleOffset).toFloat()
+                    2.toDouble()
+                ))
+            ) * scaleFactor + minScaleOffest
+        ).toFloat()
     }
 }

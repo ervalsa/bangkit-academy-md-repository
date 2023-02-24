@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Blue Lock</string>
+    <string name="striker">Striker</string>
+    <string name="character_name">Nama Character</string>
 </resources>
