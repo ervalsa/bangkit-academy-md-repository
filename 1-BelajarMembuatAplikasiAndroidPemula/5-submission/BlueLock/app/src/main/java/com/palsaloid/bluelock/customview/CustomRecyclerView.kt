@@ -35,7 +35,7 @@ class CustomRecyclerView(
             (0 until childCount).forEach { position ->
                 val child = getChildAt(position)
                 val childCenterX = (child.left + child.right) / 2
-                val scaleValue = getGaussianScale(childCenterX, 0.5f, 0.75f, 100.toDouble())
+                val scaleValue = getGaussianScale(childCenterX, 0.5f, 0.8f, 100.toDouble())
                 child.scaleX = scaleValue
                 child.scaleY = scaleValue
             }

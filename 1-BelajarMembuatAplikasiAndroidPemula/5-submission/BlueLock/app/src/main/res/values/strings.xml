@@ -2,4 +2,15 @@
     <string name="app_name">Blue Lock</string>
     <string name="striker">Striker</string>
     <string name="character_name">Nama Character</string>
+    <string name="my_name">Ervalsa Dwi Nanda</string>
+    <string name="my_email">ervalsananda@gmail.com</string>
+    <string name="blue_lock_logo">Blue Lock Logo</string>
+    <string name="sampe_description">Rin is the younger brother of Sae Itoshi, who started playing football with him at a young age. He has played as a forward on every team he was on and has always been regarded as one of the top players. He is regarded as Blue Lock\'s best player until he is officially confirmed to be by Jinpachi Ego at the beginning of the Third Selection.</string>
+    <string name="gender">Gender</string>
+    <string name="age">Age</string>
+    <string name="birthday">Birthday</string>
+    <string name="blood_type">Blood Type</string>
+    <string name="hair_color">Hair Color</string>
+    <string name="eye_color">Eye Color</string>
+    <string name="biological_information">Biological Information</string>
 </resources>

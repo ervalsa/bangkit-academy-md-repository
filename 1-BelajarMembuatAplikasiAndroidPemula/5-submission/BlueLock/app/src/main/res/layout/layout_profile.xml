@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:id="@+id/tv_biological_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/biological_information"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_gender_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/gender"
+        app:layout_constraintStart_toStartOf="@+id/tv_biological_information"
+        app:layout_constraintTop_toBottomOf="@+id/tv_biological_information" />
+
+
+    <TextView
+        android:id="@+id/tv_age_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/age"
+        app:layout_constraintStart_toStartOf="@+id/tv_gender_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_gender_title" />
+
+    <TextView
+        android:id="@+id/tv_birthday_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/birthday"
+        app:layout_constraintStart_toStartOf="@+id/tv_age_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_age_title" />
+
+    <TextView
+        android:id="@+id/tv_blood_type_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/blood_type"
+        app:layout_constraintStart_toStartOf="@+id/tv_birthday_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_birthday_title" />
+
+    <TextView
+        android:id="@+id/tv_hair_color_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/hair_color"
+        app:layout_constraintStart_toStartOf="@+id/tv_blood_type_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_blood_type_title" />
+
+    <TextView
+        android:id="@+id/tv_eye_color_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/eye_color"
+        app:layout_constraintStart_toStartOf="@+id/tv_hair_color_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hair_color_title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="295dp" />
+
+    <TextView
+        android:id="@+id/tv_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_biological_information"
+        tools:text="Male" />
+
+    <TextView
+        android:id="@+id/tv_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_gender"
+        tools:text="17" />
+
+    <TextView
+        android:id="@+id/tv_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_age"
+        tools:text="August 17" />
+
+    <TextView
+        android:id="@+id/tv_blood_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_birthday"
+        tools:text="B" />
+
+    <TextView
+        android:id="@+id/tv_hair_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_blood_type"
+        tools:text="Purple Blue" />
+
+    <TextView
+        android:id="@+id/tv_eye_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hair_color"
+        tools:text="Pink" />
+</androidx.constraintlayout.widget.ConstraintLayout>
