@@ -24,6 +24,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        TODO("Not yet implemented")
+        if (v.id == R.id.btn_category) {
+            val mCategoryfragment = CategoryFragment()
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(R.id.frame_container, mCategoryfragment, CategoryFragment::class.java.simpleName)
+                addToBackStack(null)
+                commit()
+            }
+        }
     }
 }
