@@ -22,4 +22,16 @@
         android:name="com.palsaloid.mynavigationdrawer.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_cart"
+        android:name="com.palsaloid.mynavigationdrawer.CartFragment"
+        android:label="@string/menu_cart"
+        tools:layout="@layout/fragment_cart" />
+    <activity
+        android:id="@+id/nav_subway"
+        android:name="com.palsaloid.mynavigationdrawer.SubwayActivity"
+        android:label="activity_subway"
+        tools:layout="@layout/activity_subway" />
+
 </navigation>
