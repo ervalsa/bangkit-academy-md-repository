@@ -12,6 +12,9 @@
         android:theme="@style/Theme.MyFlexibleFragment"
         tools:targetApi="31">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
