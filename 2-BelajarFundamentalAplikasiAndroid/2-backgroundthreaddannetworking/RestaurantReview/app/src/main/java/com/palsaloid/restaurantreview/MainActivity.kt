@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.snackbar.SnackbarContentLayout
 import com.palsaloid.restaurantreview.api.ApiConfig
 import com.palsaloid.restaurantreview.databinding.ActivityMainBinding
 import com.palsaloid.restaurantreview.retrofit.CustomerReviewsItem
@@ -54,6 +56,16 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.isLoading.observe(this, {
             showLoading(it)
+        })
+
+        mainViewModel.snackbarText.observe(this, {
+            it.getContentIfNotHandled()?.let { snackBarText ->
+                Snackbar.make(
+                    window.decorView.rootView,
+                    snackBarText,
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
         })
 
         binding.btnSend.setOnClickListener { view ->

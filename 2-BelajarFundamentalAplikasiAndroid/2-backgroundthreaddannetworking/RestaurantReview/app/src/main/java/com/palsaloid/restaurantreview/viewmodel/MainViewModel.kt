@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.palsaloid.restaurantreview.Event
 import com.palsaloid.restaurantreview.MainActivity
 import com.palsaloid.restaurantreview.api.ApiConfig
 import com.palsaloid.restaurantreview.retrofit.CustomerReviewsItem
@@ -24,6 +25,9 @@ class MainViewModel : ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
+
+    private val _snackbarText = MutableLiveData<Event<String>>()
+    val snackbarText: LiveData<Event<String>> = _snackbarText
 
     init {
         findRestaurant()
@@ -72,6 +76,7 @@ class MainViewModel : ViewModel() {
                 val responseBody = response.body()
                 if (response.isSuccessful && responseBody != null) {
                     _listReview.value = response.body()?.customerReviews
+                    _snackbarText.value = Event(response.body()?.message.toString())
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
