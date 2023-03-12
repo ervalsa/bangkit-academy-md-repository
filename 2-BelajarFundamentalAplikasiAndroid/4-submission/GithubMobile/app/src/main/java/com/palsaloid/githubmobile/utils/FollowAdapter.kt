@@ -1,4 +1,4 @@
-package com.palsaloid.githubmobile.ui.profile
+package com.palsaloid.githubmobile.utils
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

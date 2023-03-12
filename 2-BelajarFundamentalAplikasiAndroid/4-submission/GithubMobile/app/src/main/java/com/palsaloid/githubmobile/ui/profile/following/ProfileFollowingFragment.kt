@@ -7,11 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentFollowingBinding
-import com.palsaloid.githubmobile.ui.profile.FollowAdapter
+import com.palsaloid.githubmobile.utils.FollowAdapter
 import com.palsaloid.githubmobile.ui.profile.ProfileViewModel
 
 class ProfileFollowingFragment : Fragment() {

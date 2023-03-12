@@ -1,4 +1,4 @@
-package com.palsaloid.githubmobile.ui.profile
+package com.palsaloid.githubmobile.utils
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

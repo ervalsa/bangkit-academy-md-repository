@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentFollowerBinding
-import com.palsaloid.githubmobile.ui.profile.FollowAdapter
+import com.palsaloid.githubmobile.utils.FollowAdapter
 import com.palsaloid.githubmobile.ui.profile.ProfileViewModel
 
 class ProfileFollowerFragment : Fragment() {

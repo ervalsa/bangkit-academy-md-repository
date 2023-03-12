@@ -12,6 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentProfileBinding
+import com.palsaloid.githubmobile.utils.ProfileSectionsPagerAdapter
 
 class ProfileFragment : Fragment() {
 
