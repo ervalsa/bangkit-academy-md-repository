@@ -1,14 +1,17 @@
 package com.palsaloid.githubmobile.ui.home
 
 import android.annotation.SuppressLint
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentHomeBinding
 
@@ -17,6 +20,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    private var listUser = ArrayList<UserResponse>()
     private val homeViewModel by activityViewModels<HomeViewModel>()
 
     override fun onCreateView(
@@ -43,6 +47,26 @@ class HomeFragment : Fragment() {
         homeViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
         }
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                if (query.isNotEmpty()) {
+                    listUser.clear()
+                    homeViewModel.searchUsername(query)
+                    setUserData(listUser)
+                    binding.searchView.clearFocus()
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                if (newText == "") {
+                    setUserData(listUser)
+                }
+                return false
+            }
+
+        })
     }
 
     @SuppressLint("NotifyDataSetChanged")

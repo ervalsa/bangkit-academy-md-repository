@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.palsaloid.githubmobile.data.remote.response.UserListResponse
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.data.remote.retrofit.ApiConfig
 import com.palsaloid.githubmobile.ui.profile.ProfileViewModel
@@ -45,6 +46,32 @@ class HomeViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<List<UserResponse>>, t: Throwable) {
+                _isLoading.value = false
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+    }
+
+    fun searchUsername(username: String) {
+        _isLoading.value = true
+
+        val client = ApiConfig.getApiService().searchUser(username)
+        client.enqueue(object : Callback<UserListResponse> {
+            override fun onResponse(call: Call<UserListResponse>, response: Response<UserListResponse>) {
+                _isLoading.value = false
+
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    if (responseBody != null) {
+                        _listUser.value = response.body()?.userListResponse
+                    }
+                } else {
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<UserListResponse>, t: Throwable) {
                 _isLoading.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }

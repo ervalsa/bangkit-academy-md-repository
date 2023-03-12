@@ -1,11 +1,13 @@
 package com.palsaloid.githubmobile.data.remote.retrofit
 
 import com.palsaloid.githubmobile.BuildConfig.API_KEY
+import com.palsaloid.githubmobile.data.remote.response.UserListResponse
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -14,10 +16,10 @@ interface ApiService {
     fun getAllUsers() : Call<List<UserResponse>>
 
     @Headers("Authorization: token $API_KEY")
-    @GET("users?q={username}")
+    @GET("search/users")
     fun searchUser(
-        @Path("username") username: String
-    ) : Call<ArrayList<UserResponse>>
+        @Query("q") username: String
+    ) : Call<UserListResponse>
 
     @Headers("Authorization: token $API_KEY")
     @GET("users/{username}")
