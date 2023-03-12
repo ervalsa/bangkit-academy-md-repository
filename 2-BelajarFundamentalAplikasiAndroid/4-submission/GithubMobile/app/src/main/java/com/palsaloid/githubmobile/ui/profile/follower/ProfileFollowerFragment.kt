@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentFollowerBinding
+import com.palsaloid.githubmobile.ui.profile.FollowAdapter
 import com.palsaloid.githubmobile.ui.profile.ProfileViewModel
 
 class ProfileFollowerFragment : Fragment() {
@@ -43,9 +44,10 @@ class ProfileFollowerFragment : Fragment() {
         }
     }
 
-    private fun setListUserData(listUser: ArrayList<UserResponse>) {
-        val adapter = ProfileFollowerAdapter(listUser)
+    private fun setListUserData(listUser: List<UserResponse>) {
+        val adapter = FollowAdapter(listUser)
         binding.rvUserFollower.adapter = adapter
+        adapter.notifyDataSetChanged()
     }
 
     private fun showLoading(isLoading: Boolean) {

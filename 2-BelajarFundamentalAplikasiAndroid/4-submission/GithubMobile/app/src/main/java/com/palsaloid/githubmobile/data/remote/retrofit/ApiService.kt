@@ -17,7 +17,7 @@ interface ApiService {
     @GET("users?q={username}")
     fun searchUser(
         @Path("username") username: String
-    ) : Call<List<UserResponse>>
+    ) : Call<ArrayList<UserResponse>>
 
     @Headers("Authorization: token $API_KEY")
     @GET("users/{username}")
@@ -29,7 +29,7 @@ interface ApiService {
     @GET("users/{username}/followers")
     fun getListFollower(
         @Path("username") username: String
-    ) : Call<ArrayList<UserResponse>>
+    ) : Call<List<UserResponse>>
 
     @Headers("Authorization: token $API_KEY")
     @GET("users/{username}/following")
