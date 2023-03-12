@@ -90,4 +90,8 @@ dependencies {
     def coroutine_version = '1.6.4'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+
+    // Splash Screen
+    def splashscreen_version = '1.0.0'
+    implementation "androidx.core:core-splashscreen:$splashscreen_version"
 }

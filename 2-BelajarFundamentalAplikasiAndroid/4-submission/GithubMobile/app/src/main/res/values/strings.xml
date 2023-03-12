@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Github Mobile</string>
+    <string name="app_name">GitHub Mobile</string>
+    <string name="this_is_image">This is Image</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">Home</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_profile">Profile</string>
 </resources>
