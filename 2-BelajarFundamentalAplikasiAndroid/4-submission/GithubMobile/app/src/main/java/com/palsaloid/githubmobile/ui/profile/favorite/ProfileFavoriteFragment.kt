@@ -1,14 +1,13 @@
-package com.palsaloid.githubmobile.ui.favorite
+package com.palsaloid.githubmobile.ui.profile.favorite
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.databinding.FragmentFavoriteBinding
 
-class FavoriteFragment : Fragment() {
+class ProfileFavoriteFragment : Fragment() {
 
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
