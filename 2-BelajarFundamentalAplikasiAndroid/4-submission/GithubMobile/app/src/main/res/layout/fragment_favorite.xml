@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:background="@drawable/bg_main"
-    tools:context=".ui.profile.favorite.ProfileFavoriteFragment">
+    tools:context=".ui.favorite.ProfileFavoriteFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

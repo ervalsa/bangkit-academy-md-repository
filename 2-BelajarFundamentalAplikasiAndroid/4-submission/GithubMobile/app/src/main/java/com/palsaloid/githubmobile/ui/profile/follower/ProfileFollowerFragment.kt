@@ -9,13 +9,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentFollowerBinding
+import com.palsaloid.githubmobile.ui.profile.ProfileViewModel
 
 class ProfileFollowerFragment : Fragment() {
 
     private var _binding: FragmentFollowerBinding? = null
     private val binding get() = _binding!!
-
-    private val profileFollowerViewModel by activityViewModels<ProfileFollowerViewModel>()
+    private val profileViewModel by activityViewModels<ProfileViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +30,7 @@ class ProfileFollowerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        profileFollowerViewModel.listFollowers.observe(viewLifecycleOwner) { listUser ->
+        profileViewModel.listFollowers.observe(viewLifecycleOwner) { listUser ->
             setListUserData(listUser)
         }
 
@@ -38,12 +38,12 @@ class ProfileFollowerFragment : Fragment() {
         binding.rvUserFollower.layoutManager = layoutManager
         binding.rvUserFollower.setHasFixedSize(true)
 
-        profileFollowerViewModel.isLoading.observe(viewLifecycleOwner) {
+        profileViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
         }
     }
 
-    private fun setListUserData(listUser: List<UserResponse>) {
+    private fun setListUserData(listUser: ArrayList<UserResponse>) {
         val adapter = ProfileFollowerAdapter(listUser)
         binding.rvUserFollower.adapter = adapter
     }

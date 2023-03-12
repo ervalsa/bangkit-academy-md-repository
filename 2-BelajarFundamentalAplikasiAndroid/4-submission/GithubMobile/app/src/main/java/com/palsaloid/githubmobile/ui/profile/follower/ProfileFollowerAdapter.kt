@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 
-class ProfileFollowerAdapter(private val listUser: List<UserResponse>) : RecyclerView.Adapter<ProfileFollowerAdapter.ViewHolder>() {
+class ProfileFollowerAdapter(private val listUser: ArrayList<UserResponse>) : RecyclerView.Adapter<ProfileFollowerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)

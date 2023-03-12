@@ -15,6 +15,9 @@ class ProfileViewModel : ViewModel() {
     private val _user = MutableLiveData<UserResponse>()
     val user: LiveData<UserResponse> = _user
 
+    private val _listFollowers = MutableLiveData<ArrayList<UserResponse>>()
+    val listFollowers: LiveData<ArrayList<UserResponse>> = _listFollowers
+
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
@@ -41,6 +44,34 @@ class ProfileViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                _isLoading.value = false
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+
+        })
+    }
+
+    private fun loadListFollower() {
+        _isLoading.value = true
+
+        val client = ApiConfig.getApiService().getListFollower(USER_LOGIN)
+        client.enqueue(object : Callback<ArrayList<UserResponse>> {
+            override fun onResponse(
+                call: Call<ArrayList<UserResponse>>,
+                response: Response<ArrayList<UserResponse>>
+            ) {
+                _isLoading.value = false
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    if (responseBody != null) {
+                        _listFollowers.value = response.body()
+                    }
+                } else {
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<ArrayList<UserResponse>>, t: Throwable) {
                 _isLoading.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }

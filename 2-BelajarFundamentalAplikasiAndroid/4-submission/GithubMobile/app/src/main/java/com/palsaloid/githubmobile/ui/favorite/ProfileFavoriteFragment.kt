@@ -1,16 +1,15 @@
-package com.palsaloid.githubmobile.ui.following
+package com.palsaloid.githubmobile.ui.favorite
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.palsaloid.githubmobile.R
-import com.palsaloid.githubmobile.databinding.FragmentFollowingBinding
+import com.palsaloid.githubmobile.databinding.FragmentFavoriteBinding
 
-class FollowingFragment : Fragment() {
+class ProfileFavoriteFragment : Fragment() {
 
-    private var _binding: FragmentFollowingBinding? = null
+    private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -18,7 +17,7 @@ class FollowingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentFollowingBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
