@@ -6,4 +6,6 @@
     <string name="title_home">Home</string>
     <string name="title_favorite">Favorite</string>
     <string name="title_profile">Profile</string>
+    <string name="title_no_favorite">No Favorite</string>
+    <string name="no_favorite_description">You can add an user to your favorite by clicking "Love Icon"</string>
 </resources>
