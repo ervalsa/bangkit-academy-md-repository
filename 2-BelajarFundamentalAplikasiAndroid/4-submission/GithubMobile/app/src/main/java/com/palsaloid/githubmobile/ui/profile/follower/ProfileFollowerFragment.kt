@@ -1,5 +1,6 @@
 package com.palsaloid.githubmobile.ui.profile.follower
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -44,6 +45,7 @@ class ProfileFollowerFragment : Fragment() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setListUserData(listUser: List<UserResponse>) {
         val adapter = FollowAdapter(listUser)
         binding.rvUserFollower.adapter = adapter

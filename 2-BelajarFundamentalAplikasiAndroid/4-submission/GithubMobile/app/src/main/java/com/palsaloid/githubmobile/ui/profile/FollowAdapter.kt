@@ -1,5 +1,6 @@
 package com.palsaloid.githubmobile.ui.profile
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,10 +18,11 @@ class FollowAdapter(private val listFollowing: List<UserResponse>) : RecyclerVie
         return ListViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val user = listFollowing[position]
-        holder.tvName.text = user.name
-        holder.tvUsername.text = user.login
+        holder.tvName.text = user.login
+        holder.tvUsername.text = "@" + user.login
 
         Glide.with(holder.itemView)
             .load(user.avatarUrl)

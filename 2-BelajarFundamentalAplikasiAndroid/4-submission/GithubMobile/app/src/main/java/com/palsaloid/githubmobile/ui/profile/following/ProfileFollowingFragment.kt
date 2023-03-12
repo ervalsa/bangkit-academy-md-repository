@@ -1,5 +1,6 @@
 package com.palsaloid.githubmobile.ui.profile.following
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -50,6 +51,7 @@ class ProfileFollowingFragment : Fragment() {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setFollowingData(listFollowing: List<UserResponse>) {
         val adapter = FollowAdapter(listFollowing)
         binding.rvUserFollowing.adapter = adapter

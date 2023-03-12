@@ -1,5 +1,6 @@
 package com.palsaloid.githubmobile.ui.home
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,10 +19,11 @@ class HomeAdapter(private val listUser: List<UserResponse>) : RecyclerView.Adapt
         return ListViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val user = listUser[position]
-        holder.tvName.text = user.name
-        holder.tvUsername.text = user.login
+        holder.tvName.text = user.login
+        holder.tvUsername.text = "@" + user.login
 
         Glide.with(holder.itemView)
             .load(user.avatarUrl)
