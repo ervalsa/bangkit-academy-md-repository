@@ -49,6 +49,8 @@ class DetailFragment : Fragment() {
 
         detailViewModel.userData.observe(viewLifecycleOwner) { userData ->
             setUserData(userData)
+            detailViewModel.loadListFollower(userData.login ?: "")
+            detailViewModel.loadListFollowing(userData.login ?: "")
         }
 
         detailViewModel.isLoading.observe(viewLifecycleOwner) {
