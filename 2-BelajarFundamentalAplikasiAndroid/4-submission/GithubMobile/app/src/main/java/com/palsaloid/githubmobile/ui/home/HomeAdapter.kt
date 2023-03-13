@@ -28,6 +28,7 @@ class HomeAdapter(private val listUser: List<UserResponse>) : RecyclerView.Adapt
         Glide.with(holder.itemView)
             .load(user.avatarUrl)
             .circleCrop()
+            .placeholder(R.drawable.ic_loading)
             .into(holder.imgProfile)
 
         holder.itemView.setOnClickListener {

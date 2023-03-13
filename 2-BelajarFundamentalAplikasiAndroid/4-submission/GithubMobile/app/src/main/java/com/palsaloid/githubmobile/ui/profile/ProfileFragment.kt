@@ -61,6 +61,7 @@ class ProfileFragment : Fragment() {
 
         Glide.with(binding.root)
             .load(userItem.avatarUrl)
+            .placeholder(R.drawable.ic_loading)
             .into(binding.imgProfile)
     }
 

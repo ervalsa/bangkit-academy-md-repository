@@ -50,6 +50,7 @@ class DetailViewModel : ViewModel() {
 
         })
     }
+
     fun loadListFollower(username: String) {
         _isLoading.value = true
 

@@ -80,6 +80,7 @@ class DetailFragment : Fragment() {
 
         Glide.with(binding.root)
             .load(userData.avatarUrl)
+            .placeholder(R.drawable.ic_loading)
             .into(binding.imgProfile)
     }
 
