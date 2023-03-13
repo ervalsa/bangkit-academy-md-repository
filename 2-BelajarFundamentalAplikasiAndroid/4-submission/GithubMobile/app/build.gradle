@@ -97,4 +97,8 @@ dependencies {
     // Splash Screen
     def splashscreen_version = '1.0.0'
     implementation "androidx.core:core-splashscreen:$splashscreen_version"
+
+    // Sliding Pane Layout
+    def slidingpanelayout_version = '1.2.0'
+    implementation "androidx.slidingpanelayout:slidingpanelayout:$slidingpanelayout_version"
 }
