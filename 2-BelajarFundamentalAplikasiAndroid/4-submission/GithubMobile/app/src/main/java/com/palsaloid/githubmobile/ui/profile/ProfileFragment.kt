@@ -12,7 +12,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentProfileBinding
-import com.palsaloid.githubmobile.utils.ProfileSectionsPagerAdapter
 
 class ProfileFragment : Fragment() {
 
@@ -58,7 +57,7 @@ class ProfileFragment : Fragment() {
         binding.tvFollowing.text = userItem.following.toString() ?: "-"
         binding.tvPublicRepo.text = userItem.public_repos.toString() ?: "-"
         binding.tvLocation.text = userItem.location ?: "-"
-        binding.tvUsername.text = userItem.login ?: "-"
+        binding.tvUsername.text = ("@" + userItem.login) ?: "-"
 
         Glide.with(binding.root)
             .load(userItem.avatarUrl)
