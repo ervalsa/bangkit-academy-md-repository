@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.palsaloid.githubmobile.data.remote.response.UserListResponse
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.data.remote.retrofit.ApiConfig
-import com.palsaloid.githubmobile.ui.profile.ProfileViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

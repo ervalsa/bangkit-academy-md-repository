@@ -1,13 +1,11 @@
 package com.palsaloid.githubmobile.ui.splash
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import com.palsaloid.githubmobile.MainActivity
-import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.databinding.ActivitySplashBinding
 
 @SuppressLint("CustomSplashScreen")

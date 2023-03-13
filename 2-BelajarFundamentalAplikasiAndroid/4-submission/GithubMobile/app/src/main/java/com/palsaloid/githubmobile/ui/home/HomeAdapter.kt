@@ -1,8 +1,6 @@
 package com.palsaloid.githubmobile.ui.home
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,9 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
-import com.palsaloid.githubmobile.ui.detail.DetailFragment
-import com.palsaloid.githubmobile.ui.detail.DetailFragmentDirections
-import com.palsaloid.githubmobile.ui.detail.DetailViewModel
 
 class HomeAdapter(private val listUser: List<UserResponse>) : RecyclerView.Adapter<HomeAdapter.ListViewHolder>() {
 

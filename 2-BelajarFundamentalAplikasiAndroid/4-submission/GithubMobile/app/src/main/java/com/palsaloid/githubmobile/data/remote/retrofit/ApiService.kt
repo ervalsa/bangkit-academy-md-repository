@@ -1,11 +1,9 @@
 package com.palsaloid.githubmobile.data.remote.retrofit
 
-import com.palsaloid.githubmobile.BuildConfig.API_KEY
 import com.palsaloid.githubmobile.data.remote.response.UserListResponse
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Headers
 import retrofit2.http.Path
 import retrofit2.http.Query
 

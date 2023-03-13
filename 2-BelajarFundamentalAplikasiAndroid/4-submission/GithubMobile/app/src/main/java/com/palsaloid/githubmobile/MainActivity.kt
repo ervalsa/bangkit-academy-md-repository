@@ -1,13 +1,11 @@
 package com.palsaloid.githubmobile
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.commit
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.palsaloid.githubmobile.databinding.ActivityMainBinding
-import com.palsaloid.githubmobile.ui.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
