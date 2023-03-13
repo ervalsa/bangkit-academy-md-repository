@@ -35,15 +35,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val mFragmentManager = parentFragmentManager
-        val mHomeFragment = HomeFragment()
-        val fragment = mFragmentManager.findFragmentByTag(HomeFragment::class.java.simpleName)
-        if (fragment !is HomeFragment) {
-            mFragmentManager.commit {
-                add(R.id.nav_host_fragment_container, mHomeFragment, HomeFragment::class.java.simpleName)
-            }
-        }
-
         homeViewModel.listUser.observe(viewLifecycleOwner) { listUser ->
             setUserData(listUser)
         }

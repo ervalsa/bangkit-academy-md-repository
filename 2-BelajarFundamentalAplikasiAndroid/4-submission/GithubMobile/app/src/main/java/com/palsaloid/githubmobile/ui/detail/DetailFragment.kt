@@ -4,9 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.palsaloid.githubmobile.MainActivity
 import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentDetailBinding
@@ -17,6 +22,7 @@ class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
+    private val bottomNav: BottomNavigationView = MainActivity.binding.bottomNav
     private val detailViewModel by activityViewModels<DetailViewModel>()
 
     override fun onCreateView(
@@ -43,12 +49,14 @@ class DetailFragment : Fragment() {
         }
 
         binding.btnBack.setOnClickListener {
-            val mHomeFragment = HomeFragment()
-            val mFragmentManager = parentFragmentManager
-            mFragmentManager.commit {
-                replace(R.id.nav_host_fragment_container, mHomeFragment, HomeFragment::class.java.simpleName)
-            }
+            binding.btnBack.findNavController().popBackStack()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        bottomNav.menu.getItem(0).isChecked = true
     }
 
     private fun setUserData(userData: UserResponse) {

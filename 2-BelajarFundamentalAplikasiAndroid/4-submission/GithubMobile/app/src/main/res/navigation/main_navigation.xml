@@ -31,7 +31,8 @@
         tools:layout="@layout/fragment_detail" >
         <action
             android:id="@+id/action_navigation_detail_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_home" />
         <argument
             android:name="username"
             app:argType="string"
