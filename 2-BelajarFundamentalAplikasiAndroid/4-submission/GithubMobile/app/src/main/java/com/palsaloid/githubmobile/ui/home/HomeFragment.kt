@@ -11,7 +11,9 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentHomeBinding
 
@@ -35,6 +37,15 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val mFragmentManager = parentFragmentManager
+        val mHomeFragment = HomeFragment()
+        val fragment = mFragmentManager.findFragmentByTag(HomeFragment::class.java.simpleName)
+        if (fragment !is HomeFragment) {
+            mFragmentManager.commit {
+                add(R.id.nav_host_fragment_container, mHomeFragment, HomeFragment::class.java.simpleName)
+            }
+        }
 
         homeViewModel.listUser.observe(viewLifecycleOwner) { listUser ->
             setUserData(listUser)
@@ -83,5 +94,9 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        const val USER_DATA = "user_data"
     }
 }

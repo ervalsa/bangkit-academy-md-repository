@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.palsaloid.githubmobile.databinding.FragmentFavoriteBinding
 
-class ProfileFavoriteFragment : Fragment() {
+class FavoriteFragment : Fragment() {
 
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!

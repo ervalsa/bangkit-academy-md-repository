@@ -1,15 +1,21 @@
 package com.palsaloid.githubmobile.ui.home
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
+import com.palsaloid.githubmobile.ui.detail.DetailFragment
+import com.palsaloid.githubmobile.ui.detail.DetailFragmentDirections
+import com.palsaloid.githubmobile.ui.detail.DetailViewModel
 
 class HomeAdapter(private val listUser: List<UserResponse>) : RecyclerView.Adapter<HomeAdapter.ListViewHolder>() {
 
@@ -28,6 +34,12 @@ class HomeAdapter(private val listUser: List<UserResponse>) : RecyclerView.Adapt
             .load(user.avatarUrl)
             .circleCrop()
             .into(holder.imgProfile)
+
+        holder.itemView.setOnClickListener {
+            val toDetailFragment = HomeFragmentDirections.actionNavigationHomeToNavigationDetail()
+            toDetailFragment.username = user.login.toString()
+            holder.itemView.findNavController().navigate(toDetailFragment)
+        }
     }
 
     override fun getItemCount(): Int = listUser.size

@@ -1,7 +1,10 @@
 package com.palsaloid.githubmobile.data.remote.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class UserResponse(
     @field:SerializedName("name")
     var name: String? = null,
@@ -29,4 +32,4 @@ data class UserResponse(
 
     @field:SerializedName("following")
     var following: Int? = null
-)
+) : Parcelable

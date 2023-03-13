@@ -17,4 +17,5 @@
     <string name="sample_bio">saya adalah android developer dari balikpapan, yang sekarang berkuliah di institut teknologi kalimantan</string>
     <string name="sample_company">Institut Teknologi Kalimantan</string>
     <string name="sample_location">Balikpapan Utara, Indonesia</string>
+    <string name="title_user_profile">User Profile</string>
 </resources>
