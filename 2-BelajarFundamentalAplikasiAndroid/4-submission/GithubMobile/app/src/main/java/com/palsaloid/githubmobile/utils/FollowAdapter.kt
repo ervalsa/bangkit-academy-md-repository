@@ -27,6 +27,7 @@ class FollowAdapter(private val listFollowing: List<UserResponse>) : RecyclerVie
         Glide.with(holder.itemView)
             .load(user.avatarUrl)
             .circleCrop()
+            .placeholder(R.drawable.ic_loading)
             .into(holder.imgProfile)
     }
 
