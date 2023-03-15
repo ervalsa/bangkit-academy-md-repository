@@ -38,13 +38,17 @@ class DetailFollowingFragment : Fragment() {
             setListFollowingData(listFollowing)
         }
 
-        val layoutManager = LinearLayoutManager(activity)
-        binding.rvUserFollower.layoutManager = layoutManager
-        binding.rvUserFollower.setHasFixedSize(true)
+        detailViewModel.userData.observe(viewLifecycleOwner) { userData ->
+            detailViewModel.loadListFollowing(userData.login ?: "")
+        }
 
         detailViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
         }
+
+        val layoutManager = LinearLayoutManager(activity)
+        binding.rvUserFollower.layoutManager = layoutManager
+        binding.rvUserFollower.setHasFixedSize(true)
     }
 
     @SuppressLint("NotifyDataSetChanged")
