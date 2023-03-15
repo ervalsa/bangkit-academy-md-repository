@@ -25,7 +25,7 @@ class ProfileFollowingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentFollowingBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentFollowingBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -47,7 +47,7 @@ class ProfileFollowingFragment : Fragment() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.INVISIBLE
     }
 
     @SuppressLint("NotifyDataSetChanged")

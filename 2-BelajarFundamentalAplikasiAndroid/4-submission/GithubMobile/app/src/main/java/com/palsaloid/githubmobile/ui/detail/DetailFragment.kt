@@ -29,7 +29,7 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentDetailBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -85,7 +85,7 @@ class DetailFragment : Fragment() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.INVISIBLE
     }
 
     override fun onDestroyView() {

@@ -52,7 +52,6 @@ class ProfileViewModel : ViewModel() {
                 _isLoading.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
-
         })
     }
 
@@ -109,7 +108,6 @@ class ProfileViewModel : ViewModel() {
                 _isLoading.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
-
         })
     }
 

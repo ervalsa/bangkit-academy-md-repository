@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.data.remote.retrofit.ApiConfig
-import com.palsaloid.githubmobile.ui.profile.ProfileViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,7 +24,13 @@ class DetailViewModel : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun loadUserData(username: String) {
+    init {
+        loadUserData()
+        loadListFollowing()
+        loadListFollower()
+    }
+
+    fun loadUserData(username: String = "") {
         _isLoading.value = true
 
         val client = ApiConfig.getApiService().getDetailUser(username)
@@ -51,7 +56,7 @@ class DetailViewModel : ViewModel() {
         })
     }
 
-    fun loadListFollower(username: String) {
+    fun loadListFollower(username: String = "") {
         _isLoading.value = true
 
         val client = ApiConfig.getApiService().getListFollower(username)
@@ -76,11 +81,10 @@ class DetailViewModel : ViewModel() {
                 _isLoading.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
-
         })
     }
 
-    fun loadListFollowing(username: String) {
+    fun loadListFollowing(username: String = "") {
         _isLoading.value = true
 
         val client = ApiConfig.getApiService().getListFollowing(username)
@@ -105,7 +109,6 @@ class DetailViewModel : ViewModel() {
                 _isLoading.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
-
         })
     }
 

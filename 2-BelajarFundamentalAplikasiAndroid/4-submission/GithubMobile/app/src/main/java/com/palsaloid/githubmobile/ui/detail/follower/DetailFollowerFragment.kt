@@ -26,7 +26,7 @@ class DetailFollowerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentFollowerBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentFollowerBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -55,7 +55,7 @@ class DetailFollowerFragment : Fragment() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.INVISIBLE
     }
 
     override fun onDestroyView() {
