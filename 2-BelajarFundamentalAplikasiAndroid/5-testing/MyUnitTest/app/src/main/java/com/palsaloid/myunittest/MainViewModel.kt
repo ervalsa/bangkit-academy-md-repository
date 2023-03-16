@@ -1,8 +1,6 @@
 package com.palsaloid.myunittest
 
-import androidx.lifecycle.ViewModel
-
-class MainViewModel(private val cuboidModel: CuboidModel) : ViewModel() {
+class MainViewModel(private val cuboidModel: CuboidModel) {
 
     fun getCircumference() = cuboidModel.getCircumference()
 
