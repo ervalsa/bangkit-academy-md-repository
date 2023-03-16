@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         activityMainBinding.btnSave.setOnClickListener(this)
         activityMainBinding.btnCalculateCircumference.setOnClickListener(this)
-        activityMainBinding.btnCalculateSurafaceArea.setOnClickListener(this)
+        activityMainBinding.btnCalculateSurfaceArea.setOnClickListener(this)
         activityMainBinding.btnCalculateVolume.setOnClickListener(this)
     }
 
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         gone()
                     }
 
-                    R.id.btn_calculate_suraface_area -> {
+                    R.id.btn_calculate_surface_area -> {
                         activityMainBinding.tvResult.text = mainViewModel.getSurfaceArea().toString()
                         gone()
                     }
@@ -76,14 +76,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun gone() {
         activityMainBinding.btnCalculateVolume.visibility = View.GONE
         activityMainBinding.btnCalculateCircumference.visibility = View.GONE
-        activityMainBinding.btnCalculateSurafaceArea.visibility = View.GONE
+        activityMainBinding.btnCalculateSurfaceArea.visibility = View.GONE
         activityMainBinding.btnSave.visibility = View.VISIBLE
     }
 
     private fun visible() {
         activityMainBinding.btnCalculateVolume.visibility = View.VISIBLE
         activityMainBinding.btnCalculateCircumference.visibility = View.VISIBLE
-        activityMainBinding.btnCalculateSurafaceArea.visibility = View.VISIBLE
+        activityMainBinding.btnCalculateSurfaceArea.visibility = View.VISIBLE
         activityMainBinding.btnSave.visibility = View.GONE
     }
 }

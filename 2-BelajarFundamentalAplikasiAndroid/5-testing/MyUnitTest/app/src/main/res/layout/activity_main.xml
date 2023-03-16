@@ -78,7 +78,7 @@
             android:visibility="gone"/>
 
         <Button
-            android:id="@+id/btn_calculate_suraface_area"
+            android:id="@+id/btn_calculate_surface_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
