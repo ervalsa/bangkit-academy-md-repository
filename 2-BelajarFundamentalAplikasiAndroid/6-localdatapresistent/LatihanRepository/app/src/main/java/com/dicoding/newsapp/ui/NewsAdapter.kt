@@ -38,6 +38,7 @@ class NewsAdapter : ListAdapter<NewsEntity, MyViewHolder>(DIFF_CALLBACK) {
                 .load(news.urlToImage)
                 .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
                 .into(binding.imgPoster)
+
             itemView.setOnClickListener {
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.data = Uri.parse(news.url)
