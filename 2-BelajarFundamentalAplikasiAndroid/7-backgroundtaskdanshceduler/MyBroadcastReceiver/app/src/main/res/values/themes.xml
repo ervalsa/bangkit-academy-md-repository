@@ -13,4 +13,6 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.Broadcast.SmsReceiver" parent="Theme.MaterialComponents.DayNight.Dialog"/>
 </resources>
