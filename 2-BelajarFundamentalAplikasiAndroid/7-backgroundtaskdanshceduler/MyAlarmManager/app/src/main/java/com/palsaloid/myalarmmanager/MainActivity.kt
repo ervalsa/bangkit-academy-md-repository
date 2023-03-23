@@ -1,8 +1,10 @@
 package com.palsaloid.myalarmmanager
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import com.palsaloid.myalarmmanager.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -22,9 +24,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, DatePickerFragme
         binding?.btnOnceTime?.setOnClickListener(this)
         binding?.btnSetOnceAlarm?.setOnClickListener(this)
 
+        binding?.btnRepeatingTime?.setOnClickListener(this)
+        binding?.btnSetRepeatingAlarm?.setOnClickListener(this)
+
         alarmReceiver = AlarmReceiver()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onClick(v: View) {
         when (v.id) {
             R.id.btn_once_date -> {
@@ -48,6 +54,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, DatePickerFragme
                     onceDate,
                     onceTime,
                     onceMessage
+                )
+            }
+
+            R.id.btn_repeating_time -> {
+                val timePickerFragmentRepeat = TimePickerFragment()
+                timePickerFragmentRepeat.show(supportFragmentManager, TIME_PICKER_REPEAT_TAG)
+            }
+
+            R.id.btn_set_repeating_alarm -> {
+                val repeatTime = binding?.tvRepeatingTime?.text.toString()
+                val repeatMessage = binding?.edtRepeatingMessage?.text.toString()
+                alarmReceiver.setRepeatingAlarm(
+                    this,
+                    AlarmReceiver.TYPE_REPEATING,
+                    repeatTime,
+                    repeatMessage
                 )
             }
         }
@@ -75,7 +97,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, DatePickerFragme
 
         when(tag) {
             TIME_PICKER_ONCE_TAG -> binding?.tvOnceTime?.text = dateFormat.format(calendar.time)
-            TIME_PICKER_REPEAT_TAG -> {}
+            TIME_PICKER_REPEAT_TAG -> binding?.tvRepeatingTime?.text = dateFormat.format(calendar.time)
             else -> {
 
             }
