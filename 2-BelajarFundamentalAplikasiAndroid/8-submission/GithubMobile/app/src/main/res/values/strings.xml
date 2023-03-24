@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">GitHub Mobile</string>
+    <string name="this_is_image">This is Image</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">Home</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_no_favorite">No Favorite</string>
+    <string name="no_favorite_description">You can add an user to your favorite by clicking "Love Icon"</string>
+    <string name="sample_username">\@ervalsa-san</string>
+    <string name="sample_name">Ervalsa Dwi Nanda</string>
+    <string name="title_followers">Followers</string>
+    <string name="sample_followers">40</string>
+    <string name="title_public_repo">Repository</string>
+    <string name="title_following">Following</string>
+    <string name="sample_bio">saya adalah android developer dari balikpapan, yang sekarang berkuliah di institut teknologi kalimantan</string>
+    <string name="sample_company">Institut Teknologi Kalimantan</string>
+    <string name="sample_location">Balikpapan Utara, Indonesia</string>
+    <string name="title_user_profile">User Profile</string>
+</resources>

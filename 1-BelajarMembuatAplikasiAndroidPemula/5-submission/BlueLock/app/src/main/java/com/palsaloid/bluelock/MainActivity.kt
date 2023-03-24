@@ -1,15 +1,12 @@
 package com.palsaloid.bluelock
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
 import com.palsaloid.bluelock.adapter.ListCharacterAdapter
 import com.palsaloid.bluelock.databinding.ActivityMainBinding
 import com.palsaloid.bluelock.model.CharacterModel
-import com.palsaloid.bluelock.ui.detail.DetailActivity
 import com.palsaloid.bluelock.ui.profile.ProfileActivity
 import com.palsaloid.bluelock.utils.CharacterData
 
@@ -18,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private val listCharacterAdapter by lazy {
-        ListCharacterAdapter { position: Int, item: CharacterModel ->
+        ListCharacterAdapter { position: Int, _: CharacterModel ->
             binding.rvCharacter.smoothScrollToPosition(position)
         }
     }

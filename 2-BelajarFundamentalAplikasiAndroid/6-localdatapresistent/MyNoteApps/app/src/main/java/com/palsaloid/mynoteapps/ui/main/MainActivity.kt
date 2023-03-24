@@ -44,9 +44,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun obtainViewModel(actvitiy: AppCompatActivity): MainViewModel {
-        val factory = ViewModelFactory.getInstance(actvitiy.application)
-        return ViewModelProvider(actvitiy, factory).get(MainViewModel::class.java)
+    private fun obtainViewModel(activity: AppCompatActivity): MainViewModel {
+        val factory = ViewModelFactory.getInstance(activity.application)
+        return ViewModelProvider(activity, factory)[MainViewModel::class.java]
     }
 
     override fun onDestroy() {

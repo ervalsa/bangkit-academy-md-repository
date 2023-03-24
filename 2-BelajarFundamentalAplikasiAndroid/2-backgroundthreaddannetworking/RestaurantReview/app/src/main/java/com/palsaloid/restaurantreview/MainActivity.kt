@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setReviewData(consumerReviews: List<CustomerReviewsItem>) {
         val listReview = consumerReviews.map {
-            "${it.review}\n- ${it.name}"
+            "${it.review}\n - ${it.name}"
         }
 
         val adapter = ReviewAdapter(listReview)

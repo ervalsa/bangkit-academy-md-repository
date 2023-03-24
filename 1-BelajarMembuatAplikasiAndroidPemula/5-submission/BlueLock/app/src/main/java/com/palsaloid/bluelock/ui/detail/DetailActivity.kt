@@ -16,6 +16,10 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
 
+    companion object {
+        const val EXTRA_DATA = "extra_data"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -24,7 +28,7 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.title = "Character Profile"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val dataCharacter = intent.getParcelableExtra<CharacterModel>("key_character")
+        val dataCharacter = intent.getParcelableExtra<CharacterModel>(EXTRA_DATA)
 
         binding.tvName.text = dataCharacter!!.name
         Glide.with(this)
@@ -46,7 +50,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val dataCharacter = intent.getParcelableExtra<CharacterModel>("key_character")
+        val dataCharacter = intent.getParcelableExtra<CharacterModel>(EXTRA_DATA)
 
         when (item.itemId) {
             R.id.action_share -> {

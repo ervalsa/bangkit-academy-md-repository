@@ -6,4 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
+    <ImageView
+        android:id="@+id/iv_hero"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        tools:src="@tools:sample/avatars"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/iv_hero"
+        app:layout_constraintStart_toStartOf="@+id/iv_hero"
+        app:layout_constraintTop_toBottomOf="@+id/iv_hero"
+        tools:text="@string/heroes_name" />
+
+    <TextView
+        android:id="@+id/tv_item_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_name"
+        tools:text="@string/description" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

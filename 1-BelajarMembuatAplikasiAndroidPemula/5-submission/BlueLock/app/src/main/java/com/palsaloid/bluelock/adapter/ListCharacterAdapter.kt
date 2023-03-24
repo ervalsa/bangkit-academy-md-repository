@@ -34,14 +34,12 @@ class ListCharacterAdapter(val itemClick: (position: Int, item: CharacterModel) 
 
         holder.itemView.setOnClickListener {
             val intentDetail = Intent(holder.itemView.context, DetailActivity::class.java)
-            intentDetail.putExtra("key_character", list[holder.adapterPosition])
+            intentDetail.putExtra(DetailActivity.EXTRA_DATA, list[holder.adapterPosition])
             holder.itemView.context.startActivity(intentDetail)
         }
     }
 
     override fun getItemCount(): Int  = list.size
 
-    class ListViewHolder(var binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root) {
-
-    }
+    class ListViewHolder(var binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root)
 }

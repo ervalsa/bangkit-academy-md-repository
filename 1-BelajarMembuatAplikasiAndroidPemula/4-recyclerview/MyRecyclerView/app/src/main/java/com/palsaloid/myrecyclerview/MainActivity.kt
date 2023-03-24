@@ -1,5 +1,6 @@
 package com.palsaloid.myrecyclerview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -50,7 +51,9 @@ class MainActivity : AppCompatActivity() {
 
         listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Hero) {
-                showSelectedHero(data)
+                val intentDetail = Intent(this@MainActivity, DetailActivity::class.java)
+                intentDetail.putExtra(DetailActivity.EXTRA_DATA, data)
+                startActivity(intentDetail)
             }
         })
     }
