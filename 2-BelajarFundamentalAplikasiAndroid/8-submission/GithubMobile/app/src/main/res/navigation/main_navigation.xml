@@ -44,7 +44,7 @@
     </fragment>
     <activity
         android:id="@+id/navigation_setting"
-        android:name="com.palsaloid.githubmobile.ui.preference.SettingActivity"
+        android:name="com.palsaloid.githubmobile.ui.setting.SettingActivity"
         android:label="activity_setting"
         tools:layout="@layout/activity_setting" />
 </navigation>

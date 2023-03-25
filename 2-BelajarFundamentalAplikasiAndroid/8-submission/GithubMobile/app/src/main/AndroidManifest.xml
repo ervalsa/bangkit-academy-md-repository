@@ -14,7 +14,7 @@
         android:theme="@style/Theme.GithubMobile"
         tools:targetApi="31">
         <activity
-            android:name=".ui.preference.SettingActivity"
+            android:name=".ui.setting.SettingActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

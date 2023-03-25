@@ -71,6 +71,9 @@ dependencies {
     def okhttp3_version = '4.10.0'
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
 
+    // datastore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
     // ViewModel & LiveData
     def viewmodel_version = '2.6.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_version"
