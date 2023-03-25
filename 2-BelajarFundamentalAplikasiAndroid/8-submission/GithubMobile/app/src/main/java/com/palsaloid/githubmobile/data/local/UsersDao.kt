@@ -14,7 +14,7 @@ interface UsersDao {
     fun getFavoritedUsers(): LiveData<List<UsersEntity>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertUsers(users: List<UsersEntity>)
+    suspend fun insertUsers(users: UsersEntity)
 
     @Update
     suspend fun updateNews(users: UsersEntity)

@@ -5,13 +5,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.palsaloid.githubmobile.data.UsersRepository
 import com.palsaloid.githubmobile.di.Injection
+import com.palsaloid.githubmobile.ui.detail.DetailViewModel
 import com.palsaloid.githubmobile.ui.favorite.FavoriteViewModel
 
 class FavoriteViewModelFactory private constructor(private val usersRepository: UsersRepository) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(FavoriteViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
+            return DetailViewModel(usersRepository) as T
+        } else if (modelClass.isAssignableFrom(FavoriteViewModel::class.java)) {
             return FavoriteViewModel(usersRepository) as T
         }
         throw IllegalArgumentException("Unkown ViewModel class: " + modelClass.name)

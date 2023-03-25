@@ -4,13 +4,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.palsaloid.githubmobile.data.UsersRepository
+import com.palsaloid.githubmobile.data.entity.UsersEntity
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.data.remote.retrofit.ApiConfig
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailViewModel : ViewModel() {
+class DetailViewModel(private val usersRepository: UsersRepository) : ViewModel() {
 
     private val _userData = MutableLiveData<UserResponse>()
     val userData: LiveData<UserResponse> = _userData
@@ -110,6 +114,32 @@ class DetailViewModel : ViewModel() {
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
+    }
+
+    fun insertUsers(users: UsersEntity) {
+        viewModelScope.launch {
+            usersRepository.insert(users)
+        }
+    }
+
+    fun isFavorited(name: String): Boolean {
+        viewModelScope.launch {
+            usersRepository.isFavorited(name)
+        }
+
+        return true
+    }
+
+    fun saveUsers(users: UsersEntity) {
+        viewModelScope.launch {
+            usersRepository.setUsersFavorite(users, true)
+        }
+    }
+
+    fun deleteUsers(users: UsersEntity) {
+        viewModelScope.launch {
+            usersRepository.setUsersFavorite(users, false)
+        }
     }
 
     companion object {

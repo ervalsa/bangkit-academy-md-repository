@@ -30,15 +30,6 @@ class SplashActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        val handler = Handler()
-        handler.postDelayed({
-            val intent = Intent(this@SplashActivity, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }, timer)
-    }
-
-    override fun onResume() {
         val pref = SettingPreference.getInstance(dataStore)
         val settingViewModel = ViewModelProvider(
             this,
@@ -52,7 +43,13 @@ class SplashActivity : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
-        super.onResume()
+
+        val handler = Handler()
+        handler.postDelayed({
+            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, timer)
     }
 
     companion object {

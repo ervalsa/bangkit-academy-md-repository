@@ -8,7 +8,7 @@ import com.palsaloid.githubmobile.data.entity.UsersEntity
 
 @Database(
     entities = [UsersEntity::class],
-    version = 3,
+    version = 4,
     exportSchema = false
 )
 abstract class UsersDatabase : RoomDatabase() {

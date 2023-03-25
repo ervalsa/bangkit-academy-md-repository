@@ -5,9 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "users")
-class UsersEntity(
+data class UsersEntity(
     @field:ColumnInfo(name = "name")
-    @field:PrimaryKey
+    @field:PrimaryKey(autoGenerate = false)
     val name: String,
 
     @field:ColumnInfo(name = "login")

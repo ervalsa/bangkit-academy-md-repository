@@ -1,14 +1,15 @@
 package com.palsaloid.githubmobile.ui.detail
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -18,7 +19,6 @@ import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.entity.UsersEntity
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentDetailBinding
-import com.palsaloid.githubmobile.ui.favorite.FavoriteViewModel
 import com.palsaloid.githubmobile.utils.FavoriteViewModelFactory
 
 class DetailFragment : Fragment() {
@@ -27,7 +27,9 @@ class DetailFragment : Fragment() {
     private val binding get() = _binding
 
     private val bottomNav: BottomNavigationView = MainActivity.binding.bottomNav
-    private val detailViewModel by activityViewModels<DetailViewModel>()
+    private val detailViewModel by activityViewModels<DetailViewModel> {
+        FavoriteViewModelFactory.getInstance(requireActivity())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,6 +59,32 @@ class DetailFragment : Fragment() {
 
         detailViewModel.userData.observe(viewLifecycleOwner) { userData ->
             setUserData(userData)
+
+            val imgFavorite = binding?.imgFavorite
+            val isFavorited = detailViewModel.isFavorited(userData.name!!)
+            val data = UsersEntity(
+                userData.name ?: "-",
+                userData.login ?: "-",
+                userData.avatarUrl ?: "-",
+                isFavorited
+            )
+
+            if (data.isFavorite) {
+                imgFavorite?.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite))
+            } else {
+                imgFavorite?.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite_border))
+            }
+
+            binding?.imgFavorite?.setOnClickListener {
+                if (data.isFavorite) {
+                    detailViewModel.deleteUsers(data)
+                    Toast.makeText(requireContext(), "Berhasil menghapus dari favorite", Toast.LENGTH_SHORT).show()
+                } else {
+                    detailViewModel.saveUsers(data)
+                    detailViewModel.insertUsers(data)
+                    Toast.makeText(requireContext(), "Berhasil menambahkan ke favorite", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
         detailViewModel.isLoading.observe(viewLifecycleOwner) {

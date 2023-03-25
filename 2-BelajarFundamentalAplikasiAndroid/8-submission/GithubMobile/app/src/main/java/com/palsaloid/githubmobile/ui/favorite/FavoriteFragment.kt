@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isNotEmpty
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.palsaloid.githubmobile.databinding.FragmentFavoriteBinding
@@ -34,6 +36,11 @@ class FavoriteFragment : Fragment() {
         val usersAdapter = FavoriteAdapter { users ->
             if (users.isFavorite) {
                 viewModel.deleteUsers(users)
+                Toast.makeText(
+                    requireContext(),
+                    "Berhasil menghapus user favorite",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 viewModel.saveUsers(users)
             }

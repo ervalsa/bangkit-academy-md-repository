@@ -8,10 +8,9 @@ import com.palsaloid.githubmobile.data.remote.retrofit.ApiConfig
 object Injection {
 
     fun provideRepository(context: Context): UsersRepository {
-        val apiService = ApiConfig.getApiService()
         val database = UsersDatabase.getInstance(context)
         val dao = database.usersDao()
 
-        return UsersRepository.getInstance(apiService, dao)
+        return UsersRepository.getInstance(dao)
     }
 }

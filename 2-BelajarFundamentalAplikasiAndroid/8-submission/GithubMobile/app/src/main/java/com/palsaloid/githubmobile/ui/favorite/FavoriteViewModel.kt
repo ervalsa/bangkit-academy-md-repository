@@ -7,7 +7,6 @@ import com.palsaloid.githubmobile.data.entity.UsersEntity
 import kotlinx.coroutines.launch
 
 class FavoriteViewModel(private val usersRepository: UsersRepository) : ViewModel() {
-
     fun getFavoritedUsers() = usersRepository.getFavoritedUsers()
 
     fun saveUsers(users: UsersEntity) {

@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.entity.UsersEntity
-import com.palsaloid.githubmobile.databinding.ItemUserBinding
+import com.palsaloid.githubmobile.databinding.ItemUserFavoriteBinding
 
 class FavoriteAdapter(private val onFavoriteClick: (UsersEntity) -> Unit) : ListAdapter<UsersEntity, FavoriteAdapter.ViewHolder>(DIFF_CALLBACK){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemUserFavoriteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -23,20 +23,20 @@ class FavoriteAdapter(private val onFavoriteClick: (UsersEntity) -> Unit) : List
         val users = getItem(position)
         holder.bind(users)
 
-//        val imgFavorite = holder.binding.imgFavorite
-//        if (users.isFavorite) {
-//            imgFavorite.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite_fill))
-//        } else {
-//            imgFavorite.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite_outline))
-//        }
-//
-//        imgFavorite.setOnClickListener {
-//            onFavoriteClick(users)
-//        }
+        val imgFavorite = holder.binding.imgFavorite
+        if (users.isFavorite) {
+            imgFavorite.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite_fill))
+        } else {
+            imgFavorite.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite_outline))
+        }
+
+        imgFavorite.setOnClickListener {
+            onFavoriteClick(users)
+        }
     }
 
 
-    class ViewHolder(val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: ItemUserFavoriteBinding) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(users: UsersEntity) {
             binding.tvName.text = users.login
@@ -44,6 +44,7 @@ class FavoriteAdapter(private val onFavoriteClick: (UsersEntity) -> Unit) : List
             Glide.with(itemView.context)
                 .load(users.avatarUrl)
                 .placeholder(R.drawable.ic_loading)
+                .circleCrop()
                 .into(binding.imgProfile)
         }
     }
