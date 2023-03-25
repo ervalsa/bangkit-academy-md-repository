@@ -34,6 +34,7 @@
         android:layout_marginTop="24dp"
         android:contentDescription="@string/this_is_image"
         android:src="@drawable/no_favorite_illustration"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +50,7 @@
         android:text="@string/title_no_favorite"
         android:textColor="?android:textColor"
         android:textSize="22sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/img_illustration"
         app:layout_constraintStart_toStartOf="@+id/img_illustration"
         app:layout_constraintTop_toBottomOf="@+id/img_illustration" />
@@ -63,9 +65,19 @@
         android:text="@string/no_favorite_description"
         android:textColor="?android:textColor"
         android:textSize="16sp"
+        android:visibility="invisible"
         android:textAlignment="center"
         android:fontFamily="@font/mona_sans_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
