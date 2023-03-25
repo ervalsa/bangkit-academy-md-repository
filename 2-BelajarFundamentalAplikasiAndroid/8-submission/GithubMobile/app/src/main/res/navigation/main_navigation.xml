@@ -23,7 +23,11 @@
         android:id="@+id/navigation_profile"
         android:name="com.palsaloid.githubmobile.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_setting"
+            app:destination="@id/navigation_setting" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_detail"
         android:name="com.palsaloid.githubmobile.ui.detail.DetailFragment"
@@ -38,4 +42,9 @@
             app:argType="string"
             android:defaultValue="default_username" />
     </fragment>
+    <activity
+        android:id="@+id/navigation_setting"
+        android:name="com.palsaloid.githubmobile.ui.preference.SettingActivity"
+        android:label="activity_setting"
+        tools:layout="@layout/activity_setting" />
 </navigation>

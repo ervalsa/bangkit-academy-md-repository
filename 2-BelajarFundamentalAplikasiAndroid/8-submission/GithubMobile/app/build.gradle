@@ -94,6 +94,10 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
 
+    // preference
+    def preference_version = '1.2.0'
+    implementation "androidx.preference:preference:$preference_version"
+
     // Splash Screen
     def splashscreen_version = '1.0.0'
     implementation "androidx.core:core-splashscreen:$splashscreen_version"

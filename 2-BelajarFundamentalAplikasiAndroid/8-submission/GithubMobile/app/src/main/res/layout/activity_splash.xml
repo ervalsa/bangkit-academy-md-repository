@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_main"
+    android:background="?colorOnPrimary"
     tools:context=".ui.splash.SplashActivity">
 
     <ImageView
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/app_name"
-        android:textColor="@color/white"
+        android:textColor="?android:textColor"
         android:textSize="18sp"
         android:fontFamily="@font/mona_sans_semibold"
         android:textStyle="bold"

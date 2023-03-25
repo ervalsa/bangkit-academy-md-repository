@@ -1,12 +1,11 @@
 package com.palsaloid.githubmobile.ui.profile
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
 import com.palsaloid.githubmobile.R
@@ -46,6 +45,11 @@ class ProfileFragment : Fragment() {
 
         profileViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
+        }
+
+        binding.btnSetting.setOnClickListener {
+            val toSetting = ProfileFragmentDirections.actionNavigationProfileToNavigationSetting()
+            findNavController().navigate(toSetting)
         }
     }
 

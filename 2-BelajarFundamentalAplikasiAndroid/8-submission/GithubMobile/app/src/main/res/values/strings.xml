@@ -18,4 +18,6 @@
     <string name="sample_company">Institut Teknologi Kalimantan</string>
     <string name="sample_location">Balikpapan Utara, Indonesia</string>
     <string name="title_user_profile">User Profile</string>
+    <string name="title_setting">Setting</string>
+    <string name="key_settings">setting</string>
 </resources>

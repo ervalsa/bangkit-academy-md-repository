@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@drawable/bg_main"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -33,8 +32,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
+        android:theme="@style/ThemeOverlay.SearchView"
         android:background="@drawable/bg_searchview"
         android:queryHint="Search github username...."
+        app:searchIcon="@drawable/ic_search"
+        app:closeIcon="@drawable/ic_close"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="parent" />

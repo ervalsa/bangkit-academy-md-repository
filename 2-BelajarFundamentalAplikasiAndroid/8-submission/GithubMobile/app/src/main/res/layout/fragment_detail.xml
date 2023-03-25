@@ -152,7 +152,7 @@
         android:ellipsize="end"
         android:fontFamily="@font/mona_sans_regular"
         android:maxLines="4"
-        android:textColor="@color/white"
+        android:textColor="?android:textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_bg"
