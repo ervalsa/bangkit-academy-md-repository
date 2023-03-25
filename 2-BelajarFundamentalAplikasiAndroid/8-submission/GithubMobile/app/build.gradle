@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -75,7 +76,7 @@ dependencies {
     implementation "androidx.datastore:datastore-preferences:1.0.0"
 
     // ViewModel & LiveData
-    def viewmodel_version = '2.6.0'
+    def viewmodel_version = '2.6.1'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$viewmodel_version"
 
@@ -88,9 +89,10 @@ dependencies {
     def viewpager2_version = '1.0.0'
     implementation "androidx.viewpager2:viewpager2:$viewpager2_version"
 
-    // Facebook Shimmer
-    def shimmer_version = '0.5.0'
-    implementation "com.facebook.shimmer:shimmer:$shimmer_version"
+    // Room
+    def room_version = '2.5.1'
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     // Coroutine
     def coroutine_version = '1.6.4'
@@ -99,7 +101,7 @@ dependencies {
 
     // preference
     def preference_version = '1.2.0'
-    implementation "androidx.preference:preference:$preference_version"
+    implementation "androidx.preference:preference-ktx:$preference_version"
 
     // Splash Screen
     def splashscreen_version = '1.0.0'
