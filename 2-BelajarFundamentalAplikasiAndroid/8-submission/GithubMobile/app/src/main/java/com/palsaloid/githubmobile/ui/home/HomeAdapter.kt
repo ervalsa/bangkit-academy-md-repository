@@ -10,12 +10,13 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.palsaloid.githubmobile.R
+import com.palsaloid.githubmobile.data.entity.UsersEntity
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 
 class HomeAdapter(private val listUser: List<UserResponse>) : RecyclerView.Adapter<HomeAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user_favorite, parent, false)
         return ListViewHolder(view)
     }
 
@@ -44,5 +45,6 @@ class HomeAdapter(private val listUser: List<UserResponse>) : RecyclerView.Adapt
         val tvName: TextView = itemView.findViewById(R.id.tv_name)
         val tvUsername: TextView = itemView.findViewById(R.id.tv_username)
         val imgProfile: ImageView = itemView.findViewById(R.id.img_profile)
+        val imgFavorite: ImageView = itemView.findViewById(R.id.img_favorite)
     }
 }

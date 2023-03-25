@@ -122,12 +122,10 @@ class DetailViewModel(private val usersRepository: UsersRepository) : ViewModel(
         }
     }
 
-    fun isFavorited(name: String): Boolean {
+    fun delete(users: UsersEntity) {
         viewModelScope.launch {
-            usersRepository.isFavorited(name)
+            usersRepository.delete(users)
         }
-
-        return true
     }
 
     fun saveUsers(users: UsersEntity) {
@@ -139,6 +137,12 @@ class DetailViewModel(private val usersRepository: UsersRepository) : ViewModel(
     fun deleteUsers(users: UsersEntity) {
         viewModelScope.launch {
             usersRepository.setUsersFavorite(users, false)
+        }
+    }
+
+    fun isFavorite(name: String) {
+        viewModelScope.launch {
+            usersRepository.isFavorited(name)
         }
     }
 

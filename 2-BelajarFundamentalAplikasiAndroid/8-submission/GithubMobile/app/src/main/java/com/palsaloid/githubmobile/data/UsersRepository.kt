@@ -1,15 +1,8 @@
 package com.palsaloid.githubmobile.data
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.liveData
-import androidx.lifecycle.map
 import com.palsaloid.githubmobile.data.entity.UsersEntity
 import com.palsaloid.githubmobile.data.local.UsersDao
-import com.palsaloid.githubmobile.data.local.UsersDatabase
-import com.palsaloid.githubmobile.data.remote.retrofit.ApiService
-import java.util.concurrent.Executor
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 
 class UsersRepository private constructor(
     private val usersDao: UsersDao,
@@ -19,7 +12,11 @@ class UsersRepository private constructor(
     }
 
     suspend fun insert(userEntity: UsersEntity) {
-        usersDao.insertUsers(userEntity)
+        usersDao.insertUser(userEntity)
+    }
+
+    suspend fun delete(userEntity: UsersEntity) {
+        usersDao.deleteUsers(userEntity)
     }
 
     suspend fun isFavorited(name: String): Boolean {
@@ -29,7 +26,7 @@ class UsersRepository private constructor(
 
     suspend fun setUsersFavorite(users: UsersEntity, favoriteState: Boolean) {
         users.isFavorite = favoriteState
-        usersDao.updateNews(users)
+        usersDao.updateUsers(users)
     }
 
     companion object {

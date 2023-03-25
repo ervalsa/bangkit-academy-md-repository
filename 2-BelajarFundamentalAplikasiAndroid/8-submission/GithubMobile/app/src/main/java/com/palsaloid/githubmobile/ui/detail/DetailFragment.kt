@@ -60,28 +60,21 @@ class DetailFragment : Fragment() {
         detailViewModel.userData.observe(viewLifecycleOwner) { userData ->
             setUserData(userData)
 
-            val imgFavorite = binding?.imgFavorite
-            val isFavorited = detailViewModel.isFavorited(userData.name!!)
             val data = UsersEntity(
                 userData.name ?: "-",
                 userData.login ?: "-",
                 userData.avatarUrl ?: "-",
-                isFavorited
+                true
             )
-
-            if (data.isFavorite) {
-                imgFavorite?.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite))
-            } else {
-                imgFavorite?.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite_border))
-            }
 
             binding?.imgFavorite?.setOnClickListener {
                 if (data.isFavorite) {
+                    detailViewModel.delete(data)
                     detailViewModel.deleteUsers(data)
                     Toast.makeText(requireContext(), "Berhasil menghapus dari favorite", Toast.LENGTH_SHORT).show()
                 } else {
-                    detailViewModel.saveUsers(data)
                     detailViewModel.insertUsers(data)
+                    detailViewModel.saveUsers(data)
                     Toast.makeText(requireContext(), "Berhasil menambahkan ke favorite", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -124,6 +117,15 @@ class DetailFragment : Fragment() {
 
     private fun showLoading(isLoading: Boolean) {
         binding?.progressBar?.visibility = if (isLoading) View.VISIBLE else View.INVISIBLE
+    }
+
+    private fun setFavorite(isFavorite: Boolean) {
+        val imgFavorite = binding?.imgFavorite
+        if (isFavorite) {
+            imgFavorite?.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite))
+        } else {
+            imgFavorite?.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite_border))
+        }
     }
 
     override fun onDestroyView() {
