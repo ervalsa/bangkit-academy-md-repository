@@ -7,17 +7,11 @@ import com.palsaloid.githubmobile.data.entity.UsersEntity
 import kotlinx.coroutines.launch
 
 class FavoriteViewModel(private val usersRepository: UsersRepository) : ViewModel() {
-    fun getFavoritedUsers() = usersRepository.getFavoritedUsers()
+    fun getFavoritedUsers() = usersRepository.getFavoriteUser()
 
-    fun saveUsers(users: UsersEntity) {
+    fun deleteUsers(user: UsersEntity) {
         viewModelScope.launch {
-            usersRepository.setUsersFavorite(users, true)
-        }
-    }
-
-    fun deleteUsers(users: UsersEntity) {
-        viewModelScope.launch {
-            usersRepository.setUsersFavorite(users, false)
+            usersRepository.deleteUser(user)
         }
     }
 }

@@ -1,32 +1,25 @@
 package com.palsaloid.githubmobile.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.liveData
+import androidx.lifecycle.map
 import com.palsaloid.githubmobile.data.entity.UsersEntity
 import com.palsaloid.githubmobile.data.local.UsersDao
+import com.palsaloid.githubmobile.data.remote.retrofit.ApiService
 
 class UsersRepository private constructor(
-    private val usersDao: UsersDao,
+    private val usersDao: UsersDao
 ) {
-    fun getFavoritedUsers(): LiveData<List<UsersEntity>> {
-        return usersDao.getFavoritedUsers()
+
+    fun getFavoriteUser(): LiveData<List<UsersEntity>> = usersDao.getFavoriteUser()
+
+    suspend fun insertUser(user: UsersEntity) {
+        usersDao.insertUser(user)
     }
 
-    suspend fun insert(userEntity: UsersEntity) {
-        usersDao.insertUser(userEntity)
-    }
-
-    suspend fun delete(userEntity: UsersEntity) {
-        usersDao.deleteUsers(userEntity)
-    }
-
-    suspend fun isFavorited(name: String): Boolean {
-        usersDao.isUsersFavorited(name)
-        return true
-    }
-
-    suspend fun setUsersFavorite(users: UsersEntity, favoriteState: Boolean) {
-        users.isFavorite = favoriteState
-        usersDao.updateUsers(users)
+    suspend fun deleteUser(user: UsersEntity) {
+        usersDao.deleteUser(user)
     }
 
     companion object {

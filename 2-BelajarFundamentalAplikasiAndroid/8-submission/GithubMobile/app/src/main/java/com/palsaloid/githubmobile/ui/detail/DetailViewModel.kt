@@ -9,6 +9,9 @@ import com.palsaloid.githubmobile.data.UsersRepository
 import com.palsaloid.githubmobile.data.entity.UsersEntity
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.data.remote.retrofit.ApiConfig
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -116,33 +119,15 @@ class DetailViewModel(private val usersRepository: UsersRepository) : ViewModel(
         })
     }
 
-    fun insertUsers(users: UsersEntity) {
+    fun insertUser(user: UsersEntity) {
         viewModelScope.launch {
-            usersRepository.insert(users)
+            usersRepository.insertUser(user)
         }
     }
 
-    fun delete(users: UsersEntity) {
+    fun deleteUser(user: UsersEntity) {
         viewModelScope.launch {
-            usersRepository.delete(users)
-        }
-    }
-
-    fun saveUsers(users: UsersEntity) {
-        viewModelScope.launch {
-            usersRepository.setUsersFavorite(users, true)
-        }
-    }
-
-    fun deleteUsers(users: UsersEntity) {
-        viewModelScope.launch {
-            usersRepository.setUsersFavorite(users, false)
-        }
-    }
-
-    fun isFavorite(name: String) {
-        viewModelScope.launch {
-            usersRepository.isFavorited(name)
+            usersRepository.deleteUser(user)
         }
     }
 

@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.palsaloid.githubmobile.R
+import com.palsaloid.githubmobile.data.Result
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentHomeBinding
+import com.palsaloid.githubmobile.utils.FavoriteViewModelFactory
 
 class HomeFragment : Fragment() {
 
@@ -20,7 +20,9 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var listUser = ArrayList<UserResponse>()
-    private val homeViewModel by activityViewModels<HomeViewModel>()
+    private val homeViewModel by activityViewModels<HomeViewModel> {
+        FavoriteViewModelFactory.getInstance(requireActivity())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +37,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel.listUser.observe(viewLifecycleOwner) { listUser ->
+        homeViewModel.listSearchUser.observe(viewLifecycleOwner) { listUser ->
             setUserData(listUser)
         }
 

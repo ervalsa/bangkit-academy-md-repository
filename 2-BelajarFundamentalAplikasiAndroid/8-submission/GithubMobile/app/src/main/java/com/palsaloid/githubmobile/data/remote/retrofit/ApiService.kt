@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("users")
-    fun getAllUsers() : Call<List<UserResponse>>
+    fun getAllUsers() : UserListResponse
 
     @GET("search/users")
     fun searchUser(

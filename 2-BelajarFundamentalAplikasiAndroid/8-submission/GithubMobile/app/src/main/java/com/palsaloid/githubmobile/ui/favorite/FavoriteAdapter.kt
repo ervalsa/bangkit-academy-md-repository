@@ -24,7 +24,7 @@ class FavoriteAdapter(private val onFavoriteClick: (UsersEntity) -> Unit) : List
         holder.bind(users)
 
         val imgFavorite = holder.binding.imgFavorite
-        if (users.isFavorite) {
+        if (users != null) {
             imgFavorite.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite_fill))
         } else {
             imgFavorite.setImageDrawable(ContextCompat.getDrawable(imgFavorite.context, R.drawable.ic_favorite_outline))
