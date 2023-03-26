@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel(private val usersRepository: UsersRepository) : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     private val _listSearchUser = MutableLiveData<List<UserResponse>>()
     val listSearchUser: LiveData<List<UserResponse>> = _listSearchUser

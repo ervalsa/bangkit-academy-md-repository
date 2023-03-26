@@ -9,9 +9,6 @@ import com.palsaloid.githubmobile.data.UsersRepository
 import com.palsaloid.githubmobile.data.entity.UsersEntity
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.data.remote.retrofit.ApiConfig
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback

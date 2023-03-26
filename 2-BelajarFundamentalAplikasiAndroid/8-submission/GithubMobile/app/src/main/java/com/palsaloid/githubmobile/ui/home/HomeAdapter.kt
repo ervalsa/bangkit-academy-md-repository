@@ -10,7 +10,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.palsaloid.githubmobile.R
-import com.palsaloid.githubmobile.data.entity.UsersEntity
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 
 class HomeAdapter(private val listUser: List<UserResponse>) : RecyclerView.Adapter<HomeAdapter.ListViewHolder>() {

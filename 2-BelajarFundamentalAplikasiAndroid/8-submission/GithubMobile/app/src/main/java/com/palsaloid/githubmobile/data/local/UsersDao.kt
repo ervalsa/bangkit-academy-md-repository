@@ -2,7 +2,6 @@ package com.palsaloid.githubmobile.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.palsaloid.githubmobile.data.UsersRepository
 import com.palsaloid.githubmobile.data.entity.UsersEntity
 
 @Dao

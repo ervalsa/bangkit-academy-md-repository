@@ -1,12 +1,8 @@
 package com.palsaloid.githubmobile.data
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.liveData
-import androidx.lifecycle.map
 import com.palsaloid.githubmobile.data.entity.UsersEntity
 import com.palsaloid.githubmobile.data.local.UsersDao
-import com.palsaloid.githubmobile.data.remote.retrofit.ApiService
 
 class UsersRepository private constructor(
     private val usersDao: UsersDao

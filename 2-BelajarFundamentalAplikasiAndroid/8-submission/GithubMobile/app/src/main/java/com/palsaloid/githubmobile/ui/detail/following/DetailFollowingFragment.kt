@@ -2,15 +2,13 @@ package com.palsaloid.githubmobile.ui.detail.following
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
-import com.palsaloid.githubmobile.databinding.FragmentDetailFollowerBinding
 import com.palsaloid.githubmobile.databinding.FragmentDetailFollowingBinding
 import com.palsaloid.githubmobile.ui.detail.DetailViewModel
 import com.palsaloid.githubmobile.utils.FollowAdapter

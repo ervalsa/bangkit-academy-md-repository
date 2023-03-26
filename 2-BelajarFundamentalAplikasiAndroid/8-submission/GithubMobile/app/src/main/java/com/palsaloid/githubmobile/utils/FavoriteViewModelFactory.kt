@@ -7,7 +7,6 @@ import com.palsaloid.githubmobile.data.UsersRepository
 import com.palsaloid.githubmobile.di.Injection
 import com.palsaloid.githubmobile.ui.detail.DetailViewModel
 import com.palsaloid.githubmobile.ui.favorite.FavoriteViewModel
-import com.palsaloid.githubmobile.ui.home.HomeViewModel
 
 class FavoriteViewModelFactory private constructor(private val usersRepository: UsersRepository) : ViewModelProvider.NewInstanceFactory() {
 
@@ -15,8 +14,6 @@ class FavoriteViewModelFactory private constructor(private val usersRepository: 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
             return DetailViewModel(usersRepository) as T
-        } else if(modelClass.isAssignableFrom(HomeViewModel::class.java)) {
-            return HomeViewModel(usersRepository) as T
         } else if (modelClass.isAssignableFrom(FavoriteViewModel::class.java)) {
             return FavoriteViewModel(usersRepository) as T
         }

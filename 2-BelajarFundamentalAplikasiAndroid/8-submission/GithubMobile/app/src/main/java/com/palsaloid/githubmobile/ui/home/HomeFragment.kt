@@ -9,7 +9,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.palsaloid.githubmobile.data.Result
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentHomeBinding
 import com.palsaloid.githubmobile.utils.FavoriteViewModelFactory
