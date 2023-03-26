@@ -63,22 +63,22 @@ class DetailFragment : Fragment() {
 
         detailViewModel.userData.observe(viewLifecycleOwner) { detailUser ->
             setUserData(detailUser)
-        }
 
-        viewModel.isFavoriteUser(dataLogin).observe(viewLifecycleOwner) { user ->
-            if (user != null) {
-                setFavorite(true)
-                binding?.imgFavorite?.setOnClickListener {
-                    detailViewModel.deleteUser(user)
-                    Toast.makeText(
-                        requireContext(),
-                        "Berhasil menghapus user favorite",
-                        Toast.LENGTH_SHORT
-                    ).show()
+            viewModel.isFavoriteUser(dataLogin).observe(viewLifecycleOwner) { user ->
+                if (user != null) {
+                    setFavorite(true)
+                    binding?.imgFavorite?.setOnClickListener {
+                        detailViewModel.deleteUser(user)
+                        Toast.makeText(
+                            requireContext(),
+                            "Berhasil menghapus user favorite",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        setFavorite(false)
+                    }
+                } else {
                     setFavorite(false)
                 }
-            } else {
-                setFavorite(false)
             }
         }
 
@@ -96,7 +96,9 @@ class DetailFragment : Fragment() {
 
         if (bottomNav.menu.getItem(0).isChecked) {
             bottomNav.menu.getItem(0).isChecked = true
-        } else if (bottomNav.menu.getItem(1).isChecked){
+        }
+
+        if (bottomNav.menu.getItem(1).isChecked){
             bottomNav.menu.getItem(1).isChecked = true
         }
     }

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:background="@color/tealish_blue">
 
     <ImageView
         android:id="@+id/img_profile"
@@ -50,8 +51,8 @@
 
     <ImageView
         android:id="@+id/img_favorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_favorite_border"
         app:layout_constraintBottom_toBottomOf="@+id/img_profile"
