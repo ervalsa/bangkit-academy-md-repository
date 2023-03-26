@@ -18,7 +18,11 @@
         android:id="@+id/navigation_favorite"
         android:name="com.palsaloid.githubmobile.ui.favorite.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_navigation_favorite_to_navigation_detail"
+            app:destination="@id/navigation_detail" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.palsaloid.githubmobile.ui.profile.ProfileFragment"

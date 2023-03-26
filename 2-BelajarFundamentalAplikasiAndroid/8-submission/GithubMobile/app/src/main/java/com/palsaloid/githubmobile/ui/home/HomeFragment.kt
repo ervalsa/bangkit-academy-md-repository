@@ -11,7 +11,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentHomeBinding
-import com.palsaloid.githubmobile.utils.FavoriteViewModelFactory
 
 class HomeFragment : Fragment() {
 
@@ -19,9 +18,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var listUser = ArrayList<UserResponse>()
-    private val homeViewModel by activityViewModels<HomeViewModel> {
-        FavoriteViewModelFactory.getInstance(requireActivity())
-    }
+    private val homeViewModel by activityViewModels<HomeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -94,7 +94,11 @@ class DetailFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        bottomNav.menu.getItem(0).isChecked = true
+        if (bottomNav.menu.getItem(0).isChecked) {
+            bottomNav.menu.getItem(0).isChecked = true
+        } else if (bottomNav.menu.getItem(1).isChecked){
+            bottomNav.menu.getItem(1).isChecked = true
+        }
     }
 
     private fun setUserData(detailUser: UserResponse) {

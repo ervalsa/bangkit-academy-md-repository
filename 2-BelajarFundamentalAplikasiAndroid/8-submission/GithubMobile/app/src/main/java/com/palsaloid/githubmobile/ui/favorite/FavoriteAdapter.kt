@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -32,6 +33,12 @@ class FavoriteAdapter(private val onFavoriteClick: (UsersEntity) -> Unit) : List
 
         imgFavorite.setOnClickListener {
             onFavoriteClick(users)
+        }
+
+        holder.itemView.setOnClickListener {
+            val toDetailFragment = FavoriteFragmentDirections.actionNavigationFavoriteToNavigationDetail()
+            toDetailFragment.username = users.login
+            holder.itemView.findNavController().navigate(toDetailFragment)
         }
     }
 
