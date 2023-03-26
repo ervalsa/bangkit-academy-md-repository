@@ -96,6 +96,7 @@ class DetailFragment : Fragment() {
             }
         }
 
+        // User Entity
         val data = UsersEntity(
             detailUser.name.toString(),
             detailUser.login.toString(),
@@ -105,6 +106,11 @@ class DetailFragment : Fragment() {
 
         binding?.imgFavorite?.setOnClickListener {
             detailViewModel.insertUser(data)
+            Toast.makeText(
+                requireContext(),
+                "Berhasil menambahkan favorite",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

@@ -16,4 +16,7 @@ interface UsersDao {
 
     @Delete
     suspend fun deleteUser(use: UsersEntity)
+
+    @Query("SELECT * FROM users WHERE name = :name")
+    fun isFavoriteUser(name: String): LiveData<UsersEntity>
 }
