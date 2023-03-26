@@ -119,10 +119,6 @@ class DetailViewModel(private val usersRepository: UsersRepository) : ViewModel(
         })
     }
 
-    fun isFavoriteUser(name: String) {
-        usersRepository.isFavoriteUser(name)
-    }
-
     fun insertUser(user: UsersEntity) {
         viewModelScope.launch {
             usersRepository.insertUser(user)

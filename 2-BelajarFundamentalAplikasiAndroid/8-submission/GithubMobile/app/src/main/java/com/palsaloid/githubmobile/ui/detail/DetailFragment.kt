@@ -1,7 +1,6 @@
 package com.palsaloid.githubmobile.ui.detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +9,7 @@ import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -17,9 +17,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.palsaloid.githubmobile.MainActivity
 import com.palsaloid.githubmobile.R
 import com.palsaloid.githubmobile.data.entity.UsersEntity
-import com.palsaloid.githubmobile.data.local.UsersDao
 import com.palsaloid.githubmobile.data.remote.response.UserResponse
 import com.palsaloid.githubmobile.databinding.FragmentDetailBinding
+import com.palsaloid.githubmobile.ui.favorite.FavoriteViewModel
 import com.palsaloid.githubmobile.utils.FavoriteViewModelFactory
 
 class DetailFragment : Fragment() {
@@ -44,6 +44,9 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val factory: FavoriteViewModelFactory = FavoriteViewModelFactory.getInstance(requireActivity())
+        val viewModel: FavoriteViewModel by viewModels { factory }
+
         val dataLogin = DetailFragmentArgs.fromBundle(arguments as Bundle).username
         detailViewModel.loadUserData(dataLogin)
 
@@ -60,6 +63,23 @@ class DetailFragment : Fragment() {
 
         detailViewModel.userData.observe(viewLifecycleOwner) { detailUser ->
             setUserData(detailUser)
+        }
+
+        viewModel.isFavoriteUser(dataLogin).observe(viewLifecycleOwner) { user ->
+            if (user != null) {
+                setFavorite(true)
+                binding?.imgFavorite?.setOnClickListener {
+                    detailViewModel.deleteUser(user)
+                    Toast.makeText(
+                        requireContext(),
+                        "Berhasil menghapus user favorite",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    setFavorite(false)
+                }
+            } else {
+                setFavorite(false)
+            }
         }
 
         detailViewModel.isLoading.observe(viewLifecycleOwner) {
@@ -96,7 +116,6 @@ class DetailFragment : Fragment() {
             }
         }
 
-        // User Entity
         val data = UsersEntity(
             detailUser.name.toString(),
             detailUser.login.toString(),
@@ -108,9 +127,10 @@ class DetailFragment : Fragment() {
             detailViewModel.insertUser(data)
             Toast.makeText(
                 requireContext(),
-                "Berhasil menambahkan favorite",
+                "Berhasil menambahkan user favorite",
                 Toast.LENGTH_SHORT
             ).show()
+            setFavorite(true)
         }
     }
 

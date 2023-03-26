@@ -9,6 +9,8 @@ import kotlinx.coroutines.launch
 class FavoriteViewModel(private val usersRepository: UsersRepository) : ViewModel() {
     fun getFavoritedUsers() = usersRepository.getFavoriteUser()
 
+    fun isFavoriteUser(name: String) = usersRepository.isFavoriteUser(name)
+
     fun deleteUsers(user: UsersEntity) {
         viewModelScope.launch {
             usersRepository.deleteUser(user)
