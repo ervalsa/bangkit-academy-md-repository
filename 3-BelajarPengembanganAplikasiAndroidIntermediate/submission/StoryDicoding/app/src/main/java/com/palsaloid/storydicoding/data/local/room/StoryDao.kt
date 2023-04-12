@@ -1,4 +1,7 @@
 package com.palsaloid.storydicoding.data.local.room
 
-abstract class StoryDao {
+import androidx.room.Dao
+
+@Dao
+interface StoryDao {
 }
