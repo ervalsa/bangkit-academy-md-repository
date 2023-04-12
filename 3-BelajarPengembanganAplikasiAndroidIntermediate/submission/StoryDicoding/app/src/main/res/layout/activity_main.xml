@@ -20,6 +20,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        app:itemTextAppearance="@style/Theme.StoryDicoding.MontserratTextStyle"
         app:headerLayout="@layout/header_drawer_home"
         app:menu="@menu/home_drawer_menu"/>
 </androidx.drawerlayout.widget.DrawerLayout>

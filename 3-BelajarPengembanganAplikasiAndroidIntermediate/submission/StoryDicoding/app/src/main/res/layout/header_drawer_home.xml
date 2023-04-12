@@ -10,10 +10,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
         android:text="@string/developer_name"
         android:textColor="@color/white"
-        android:textSize="16sp"
-        android:fontFamily="@font/poppins_bold" />
+        android:textSize="16sp" />
 
     <TextView
         android:layout_width="match_parent"

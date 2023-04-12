@@ -22,4 +22,9 @@
     <style name="Theme.StoryDicoding.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="Theme.StoryDicoding.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    
+    <style name="Theme.StoryDicoding.MontserratTextStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>

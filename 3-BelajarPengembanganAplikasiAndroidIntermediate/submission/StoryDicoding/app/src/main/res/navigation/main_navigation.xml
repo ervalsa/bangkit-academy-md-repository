@@ -18,4 +18,12 @@
         android:id="@+id/navigation_setting"
         android:name="com.palsaloid.storydicoding.ui.setting.SettingFragment"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="com.palsaloid.storydicoding.ui.maps.MapsFragment"
+        tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/navigation_logout"
+        android:name="com.palsaloid.storydicoding.ui.logout.LogoutFragment"
+        tools:layout="@layout/fragment_logout" />
 </navigation>

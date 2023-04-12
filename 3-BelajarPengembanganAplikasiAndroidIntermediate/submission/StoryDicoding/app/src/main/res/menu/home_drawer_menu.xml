@@ -10,7 +10,7 @@
             android:title="@string/menu_home"/>
 
         <item
-            android:id="@+id/navigaiton_map"
+            android:id="@+id/navigation_map"
             android:icon="@drawable/ic_map"
             android:title="@string/menu_map"/>
 
