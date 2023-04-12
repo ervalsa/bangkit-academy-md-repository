@@ -28,6 +28,11 @@ interface ApiService {
         @Query("size") size: Int?
     )
 
+    @GET("stories/{id}")
+    fun getDetailStory(
+        @Path("id") id: String
+    )
+
     @Multipart
     @POST("stories")
     fun addStory(
