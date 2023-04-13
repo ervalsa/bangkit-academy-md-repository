@@ -9,4 +9,17 @@
     <string name="developer_email">ervalsananda@gmail.com</string>
     <string name="menu_logout">Logout</string>
     <string name="menu_home">Home</string>
+    <string name="app_title">Story\nDicoding</string>
+    <string name="content_illustration">Illustration</string>
+    <string name="title_sign_in">Sign In</string>
+    <string name="title_email">Email</string>
+    <string name="title_password">Password</string>
+    <string name="hint_password">Your password</string>
+    <string name="hint_email">Your email</string>
+    <string name="title_show_password">Show Password</string>
+    <string name="title_login">Login</string>
+    <string name="title_register">Register</string>
+    <string name="title_sign_up">SIGN UP</string>
+    <string name="hint_name">Your name</string>
+    <string name="title_fullname">Fullname</string>
 </resources>

@@ -2,13 +2,19 @@ package com.palsaloid.storydicoding.views
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.TextWatcher
+import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
+import android.view.MotionEvent
+import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
+import androidx.core.content.ContextCompat
+import com.palsaloid.storydicoding.R
 
-class CustomPasswordEditTest : AppCompatEditText {
+class CustomPasswordEditText : AppCompatEditText{
 
     constructor(context: Context): super(context) {
         init()
@@ -37,8 +43,14 @@ class CustomPasswordEditTest : AppCompatEditText {
 
             override fun onTextChanged(sequence: CharSequence?, start: Int, before: Int, count: Int) {
                 if (sequence != null) {
-                    if (sequence.length < 8) {
-                        error = "Karakter kurang dari 8"
+                    when {
+                        sequence.length < 8 -> {
+                            error = "Karakter kurang dari 8"
+                        }
+
+                        sequence.isEmpty() -> {
+                            error = "Field ini tidak boleh kosong"
+                        }
                     }
                 }
             }
@@ -46,7 +58,6 @@ class CustomPasswordEditTest : AppCompatEditText {
             override fun afterTextChanged(p0: Editable?) {
                 // Do Nothing
             }
-
         })
     }
 }
