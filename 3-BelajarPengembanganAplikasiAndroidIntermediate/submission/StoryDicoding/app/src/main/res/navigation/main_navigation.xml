@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.palsaloid.storydicoding.ui.home.HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_detail"

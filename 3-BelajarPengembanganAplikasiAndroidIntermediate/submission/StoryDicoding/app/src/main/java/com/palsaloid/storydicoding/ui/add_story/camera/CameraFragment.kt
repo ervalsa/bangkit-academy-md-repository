@@ -1,4 +1,4 @@
-package com.palsaloid.storydicoding.ui.camera
+package com.palsaloid.storydicoding.ui.add_story.camera
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

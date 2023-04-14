@@ -58,22 +58,17 @@
                 android:text="@string/title_email"
                 android:textColor="@color/dark_blue" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_input_email_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <com.palsaloid.storydicoding.views.CustomEmailEditText
+                android:id="@+id/edt_input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_custom_input"
+                android:padding="16dp"
+                android:ems="10"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="16dp"
                 android:hint="@string/hint_email"
-                app:startIconDrawable="@drawable/ic_email"
-                app:startIconTint="@color/dark_blue">
-
-                <com.palsaloid.storydicoding.views.CustomEmailEditText
-                    android:id="@+id/edt_input_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textEmailAddress" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:inputType="textEmailAddress" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -83,24 +78,20 @@
                 android:text="@string/title_password"
                 android:textColor="@color/dark_blue" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_input_password_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <com.palsaloid.storydicoding.views.CustomPasswordEditText
+                android:id="@+id/edt_input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_custom_input"
+                android:padding="16dp"
+                android:ems="10"
+                android:drawableStart="@drawable/ic_lock"
+                android:drawablePadding="16dp"
                 android:hint="@string/hint_password"
-                app:startIconDrawable="@drawable/ic_lock"
-                app:startIconTint="@color/dark_blue">
+                android:singleLine="true"
+                android:inputType="textPassword"
+                tools:ignore="Deprecated" />
 
-                <com.palsaloid.storydicoding.views.CustomPasswordEditText
-                    android:id="@+id/edt_input_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPassword"
-                    android:password="true"
-                    tools:ignore="Deprecated" />
-            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
