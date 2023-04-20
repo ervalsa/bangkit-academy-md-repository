@@ -1,4 +1,4 @@
-package com.palsaloid.storydicoding.data.entity
+package com.palsaloid.storydicoding.data.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

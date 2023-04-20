@@ -5,15 +5,15 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import com.palsaloid.storydicoding.data.model.UserModel
+import com.palsaloid.storydicoding.domain.model.User
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class UserPreference private constructor(private val datastore: DataStore<Preferences>) {
 
-    fun getUser(): Flow<UserModel> {
+    fun getUser(): Flow<User> {
         return datastore.data.map { preferences ->
-            UserModel(
+            User(
                 preferences[NAME_KEY] ?: "",
                 preferences[TOKEN_KEY] ?: "",
                 preferences[LOGIN_STATE_KEY] ?: false
@@ -21,7 +21,7 @@ class UserPreference private constructor(private val datastore: DataStore<Prefer
         }
     }
 
-    suspend fun saveUser(user: UserModel) {
+    suspend fun saveUser(user: User) {
         datastore.edit { preferences ->
             preferences[NAME_KEY] = user.name
             preferences[TOKEN_KEY] = user.token

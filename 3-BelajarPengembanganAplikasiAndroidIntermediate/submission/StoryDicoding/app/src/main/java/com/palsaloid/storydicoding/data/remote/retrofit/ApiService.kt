@@ -1,7 +1,13 @@
 package com.palsaloid.storydicoding.data.remote.retrofit
 
+import com.palsaloid.storydicoding.data.remote.response.auth.LoginResponse
+import com.palsaloid.storydicoding.data.remote.response.auth.RegisterResponse
+import com.palsaloid.storydicoding.data.remote.response.story.FileUploadResponse
+import com.palsaloid.storydicoding.data.remote.response.story.StoryResponse
+import com.palsaloid.storydicoding.data.remote.response.story.ListStoryResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiService {
@@ -11,7 +17,7 @@ interface ApiService {
     fun login(
         @Field("email") email: String,
         @Field("password") password: String
-    )
+    ) : Call<LoginResponse>
 
     @FormUrlEncoded
     @POST("register")
@@ -19,19 +25,20 @@ interface ApiService {
         @Field("name") name: String,
         @Field("email") email: String,
         @Field("password") password: String
-    )
+    ) : Call<RegisterResponse>
 
     @GET("stories")
     fun getAllStory(
         @Header("Authorization") token: String,
         @Query("page") page: Int?,
-        @Query("size") size: Int?
-    )
+        @Query("size") size: Int?,
+        @Query("location") location: Int? = 0
+    ) : Call<ListStoryResponse>
 
     @GET("stories/{id}")
     fun getDetailStory(
         @Path("id") id: String
-    )
+    ) : StoryResponse
 
     @Multipart
     @POST("stories")
@@ -39,5 +46,5 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Part photo: MultipartBody.Part,
         @Part("description") description: RequestBody
-    )
+    ) : FileUploadResponse
 }
