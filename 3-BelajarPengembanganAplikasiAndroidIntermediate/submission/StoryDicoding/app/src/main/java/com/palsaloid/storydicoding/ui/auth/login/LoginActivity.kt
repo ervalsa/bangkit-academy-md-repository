@@ -68,6 +68,13 @@ class LoginActivity : AppCompatActivity() {
 
                     is ApiResult.Success -> {
                         userViewModel.saveUser(User(email, token = result.data.loginResult.token, isLogin = true))
+
+                        Toast.makeText(
+                            this,
+                            "Login sukses, akan dialihkan ke halaman utama",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()
@@ -88,6 +95,10 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun navigateUpTo(upIntent: Intent?): Boolean {
+        return super.navigateUpTo(null)
     }
 
     private fun showLoading(isLoading: Boolean) {
