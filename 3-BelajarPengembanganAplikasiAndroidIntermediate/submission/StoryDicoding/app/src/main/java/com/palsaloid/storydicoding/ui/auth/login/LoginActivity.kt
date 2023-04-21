@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                     is ApiResult.Success -> {
-                        userViewModel.saveUser(User(email, password, isLogin = true))
+                        userViewModel.saveUser(User(email, token = result.data.loginResult.token, isLogin = true))
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()

@@ -39,8 +39,8 @@ class LogoutFragment : Fragment() {
 
         binding.btnLogout.setOnClickListener {
             val intent = Intent(requireActivity(), LoginActivity::class.java)
-            startActivity(intent)
             userViewModel.logout()
+            requireActivity().navigateUpTo(intent)
             requireActivity().finish()
         }
     }
