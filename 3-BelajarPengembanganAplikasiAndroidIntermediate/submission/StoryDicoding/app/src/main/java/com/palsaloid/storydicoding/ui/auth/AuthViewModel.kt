@@ -1,6 +1,5 @@
 package com.palsaloid.storydicoding.ui.auth
 
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,8 +9,7 @@ import com.palsaloid.storydicoding.data.remote.response.auth.LoginResponse
 import com.palsaloid.storydicoding.data.remote.response.auth.RegisterResponse
 import com.palsaloid.storydicoding.data.remote.retrofit.ApiConfig
 import com.palsaloid.storydicoding.data.remote.retrofit.ApiResult
-import com.palsaloid.storydicoding.data.remote.retrofit.ApiService
-import com.palsaloid.storydicoding.domain.usecase.StoryUseCase
+import com.palsaloid.storydicoding.utils.Event
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,6 +25,9 @@ class AuthViewModel : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private val _snackbarText = MutableLiveData<Event<String>>()
+    val snackbarText: LiveData<Event<String>> = _snackbarText
+
     fun login(email: String, password: String) {
         _isLoading.value = true
 
@@ -34,18 +35,20 @@ class AuthViewModel : ViewModel() {
         client.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 _isLoading.value = false
-                val responseBody = response.body()
-                _loginResult.value =
-                    if (response.isSuccessful && responseBody != null) {
-                        ApiResult.Success(responseBody)
-                    } else {
-                        ApiResult.Empty
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    if (responseBody != null) {
+                        _loginResult.value = ApiResult.Success(responseBody)
                     }
+                } else {
+                    _snackbarText.value = Event(response.body()?.message.toString())
+                    Log.e("AuthViewModel", "onFailure: ${response.message()}")
+                }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 _isLoading.value = false
-                _loginResult.value = ApiResult.Error(t.message.toString())
+                _loginResult.value = ApiResult.Error(Event(t.message).toString())
                 Log.e("AuthViewModel", t.message.toString())
             }
         })

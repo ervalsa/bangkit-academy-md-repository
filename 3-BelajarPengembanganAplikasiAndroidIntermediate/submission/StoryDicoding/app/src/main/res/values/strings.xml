@@ -22,4 +22,6 @@
     <string name="title_sign_up">SIGN UP</string>
     <string name="hint_name">Your name</string>
     <string name="title_fullname">Fullname</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet ipsum dolor lorem si dolor ipsum sit amet, dolor ipsum sit amet dolor</string>
+    <string name="story_image_description">Story Image</string>
 </resources>

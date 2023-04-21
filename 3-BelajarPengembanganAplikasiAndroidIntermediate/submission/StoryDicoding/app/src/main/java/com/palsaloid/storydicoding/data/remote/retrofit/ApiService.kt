@@ -2,6 +2,7 @@ package com.palsaloid.storydicoding.data.remote.retrofit
 
 import com.palsaloid.storydicoding.data.remote.response.auth.LoginResponse
 import com.palsaloid.storydicoding.data.remote.response.auth.RegisterResponse
+import com.palsaloid.storydicoding.data.remote.response.story.DetailStoryResponse
 import com.palsaloid.storydicoding.data.remote.response.story.FileUploadResponse
 import com.palsaloid.storydicoding.data.remote.response.story.StoryResponse
 import com.palsaloid.storydicoding.data.remote.response.story.ListStoryResponse
@@ -35,6 +36,12 @@ interface ApiService {
         @Query("location") location: Int? = 0
     ) : Call<ListStoryResponse>
 
+    @GET("stories/{id}")
+    fun getDetailStory(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ) : Call<DetailStoryResponse>
+
     @Multipart
     @POST("stories")
     fun addStory(
@@ -42,9 +49,4 @@ interface ApiService {
         @Part photo: MultipartBody.Part,
         @Part("description") description: RequestBody
     ) : Call<FileUploadResponse>
-
-    @GET("stories/{id}")
-    fun getDetailStory(
-        @Path("id") id: String
-    ) : Call<StoryResponse>
 }

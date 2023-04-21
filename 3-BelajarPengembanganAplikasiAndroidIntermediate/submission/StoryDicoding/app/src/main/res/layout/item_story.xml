@@ -19,31 +19,47 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            tools:src="@drawable/example_story_image" />
+            tools:src="@drawable/example_story_image"
+            android:contentDescription="@string/story_image_description" />
 
-        <TextView
-            android:id="@+id/tv_name_story"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/tv_description_story"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/montserrat_medium"
-            android:textColor="@color/white"
-            tools:text="@string/developer_name" />
-
-        <TextView
-            android:id="@+id/tv_description_story"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="3"
-            android:ellipsize="end"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/poppins"
-            tools:text="Lorem ipsum" />
+            android:layout_marginBottom="0dp"
+            android:paddingTop="16dp"
+            android:background="#4D000000"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name_story"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_description_story"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="12dp"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center|start"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_person"
+                tools:text="@string/developer_name" />
+
+            <TextView
+                android:id="@+id/tv_description_story"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins"
+                android:maxLines="2"
+                android:textColor="@color/white"
+                tools:text="@string/lorem_ipsum" />
+        </LinearLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

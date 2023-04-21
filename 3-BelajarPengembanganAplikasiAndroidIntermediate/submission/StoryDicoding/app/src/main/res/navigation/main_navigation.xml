@@ -9,12 +9,23 @@
         android:id="@+id/navigation_home"
         android:name="com.palsaloid.storydicoding.ui.home.HomeFragment"
         tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_detail"
+            app:destination="@id/navigation_detail" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_detail"
         android:name="com.palsaloid.storydicoding.ui.detail.DetailFragment"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_navigation_detail_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <argument
+            android:name="id"
+            app:argType="string"
+            android:defaultValue="default_id" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_setting"
         android:name="com.palsaloid.storydicoding.ui.setting.SettingFragment"

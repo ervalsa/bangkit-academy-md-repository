@@ -19,6 +19,7 @@ import com.palsaloid.storydicoding.data.Result
 import com.palsaloid.storydicoding.data.local.datastore.UserPreference
 import com.palsaloid.storydicoding.databinding.FragmentHomeBinding
 import com.palsaloid.storydicoding.ui.auth.login.LoginActivity
+import com.palsaloid.storydicoding.ui.detail.DetailFragment
 import com.palsaloid.storydicoding.utils.StoryViewModel
 import com.palsaloid.storydicoding.utils.UserViewModel
 import com.palsaloid.storydicoding.views.CustomRecyclerLayout

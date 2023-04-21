@@ -10,10 +10,9 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.palsaloid.storydicoding.HomeViewModelFactory
 import com.palsaloid.storydicoding.MainActivity
-import com.palsaloid.storydicoding.R
-import com.palsaloid.storydicoding.data.Result
 import com.palsaloid.storydicoding.data.local.datastore.UserPreference
 import com.palsaloid.storydicoding.data.remote.retrofit.ApiResult
 import com.palsaloid.storydicoding.databinding.ActivityLoginBinding
@@ -42,6 +41,16 @@ class LoginActivity : AppCompatActivity() {
             showLoading(it)
         }
 
+        authViewModel.snackbarText.observe(this) {
+            it.getContentIfNotHandled()?.let {
+                Snackbar.make(
+                    window.decorView.rootView,
+                    "Login gagal, email atau password salah",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+        }
+
         binding.btnLogin.setOnClickListener {
             val email = binding.edtInputEmail.text.toString()
             val password = binding.edtInputPassword.text.toString()
@@ -67,7 +76,7 @@ class LoginActivity : AppCompatActivity() {
                     is ApiResult.Error -> {
                         Toast.makeText(
                             this,
-                            "Login gagal",
+                            "Login gagal, email atau password salah",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
