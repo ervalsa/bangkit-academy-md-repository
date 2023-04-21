@@ -10,6 +10,8 @@ class LocalDataSource private constructor(private val storyDao: StoryDao) {
 
     fun insertStory(storyList: List<StoryEntity>) = storyDao.insertStory(storyList)
 
+    fun deleteStory() = storyDao.deleteAll()
+
     companion object {
         private var INSTANCE: LocalDataSource? = null
 

@@ -11,7 +11,7 @@ import com.palsaloid.storydicoding.data.local.entity.StoryEntity
 @Dao
 interface StoryDao {
 
-    @Query("SELECT * FROM story")
+    @Query("SELECT * FROM story ")
     fun getAllStory(): LiveData<List<StoryEntity>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

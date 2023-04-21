@@ -10,6 +10,6 @@ class StoryViewModel(private val storyUseCase: StoryUseCase) : ViewModel() {
 
     fun getAllStories(token: String) = storyUseCase.getAllStory(token)
 
-//    fun addStory(token: String, imageFile: MultipartBody.Part, description: RequestBody) =
-//        storyRepository.addStory(token, imageFile, description)
+    fun addStory(token: String, imageFile: MultipartBody.Part, description: RequestBody) =
+        storyUseCase.addStory(token, imageFile, description)
 }

@@ -35,16 +35,16 @@ interface ApiService {
         @Query("location") location: Int? = 0
     ) : Call<ListStoryResponse>
 
-    @GET("stories/{id}")
-    fun getDetailStory(
-        @Path("id") id: String
-    ) : StoryResponse
-
     @Multipart
     @POST("stories")
     fun addStory(
         @Header("Authorization") token: String,
         @Part photo: MultipartBody.Part,
         @Part("description") description: RequestBody
-    ) : FileUploadResponse
+    ) : Call<FileUploadResponse>
+
+    @GET("stories/{id}")
+    fun getDetailStory(
+        @Path("id") id: String
+    ) : Call<StoryResponse>
 }

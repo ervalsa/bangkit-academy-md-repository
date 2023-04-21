@@ -3,10 +3,13 @@ package com.palsaloid.storydicoding.data.remote
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.palsaloid.storydicoding.data.remote.response.story.FileUploadResponse
 import com.palsaloid.storydicoding.data.remote.response.story.ListStoryResponse
 import com.palsaloid.storydicoding.data.remote.response.story.StoryResponse
 import com.palsaloid.storydicoding.data.remote.retrofit.ApiResult
 import com.palsaloid.storydicoding.data.remote.retrofit.ApiService
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,6 +38,31 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
         })
 
         return resultData
+    }
+
+    fun addStory(token: String, imageFile: MultipartBody.Part, description: RequestBody) {
+        val client = apiService.addStory("Bearer $token", imageFile, description)
+        client.enqueue(object : Callback<FileUploadResponse> {
+            override fun onResponse(
+                call: Call<FileUploadResponse>,
+                response: Response<FileUploadResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    if (responseBody != null) {
+                        if (!responseBody.error) {
+                            Log.e("RemoteDataSource", response.message())
+                        }
+                    } else {
+                        Log.e("RemoteDataSource", response.message())
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<FileUploadResponse>, t: Throwable) {
+                Log.e("RemoteDataSource", t.message.toString())
+            }
+        })
     }
 
     companion object {
