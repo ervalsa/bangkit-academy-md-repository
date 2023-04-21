@@ -18,12 +18,17 @@ import retrofit2.Response
 class AuthViewModel : ViewModel() {
 
     private val _loginResult = MutableLiveData<ApiResult<LoginResponse>>()
-    val loginResult: LiveData<ApiResult<LoginResponse>> get() = _loginResult
+    val loginResult: LiveData<ApiResult<LoginResponse>> = _loginResult
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
     fun login(email: String, password: String) {
+        _isLoading.value = true
         val client = ApiConfig.getApiService().login(email, password)
         client.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                _isLoading.value = false
                 val responseBody = response.body()
                 _loginResult.value =
                     if (response.isSuccessful && responseBody != null) {
@@ -34,6 +39,7 @@ class AuthViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                _isLoading.value = false
                 _loginResult.value = ApiResult.Error(t.message.toString())
                 Log.e("AuthViewModel", t.message.toString())
             }

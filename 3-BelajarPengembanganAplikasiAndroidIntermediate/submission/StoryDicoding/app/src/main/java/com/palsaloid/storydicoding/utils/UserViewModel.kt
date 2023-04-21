@@ -18,4 +18,10 @@ class UserViewModel(private val preferences: UserPreference) : ViewModel() {
             preferences.saveUser(user)
         }
     }
+
+    fun logout() {
+        viewModelScope.launch {
+            preferences.logout()
+        }
+    }
 }
