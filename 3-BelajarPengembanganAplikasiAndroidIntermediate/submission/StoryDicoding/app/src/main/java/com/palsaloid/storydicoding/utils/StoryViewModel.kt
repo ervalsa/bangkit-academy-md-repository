@@ -1,4 +1,4 @@
-package com.palsaloid.storydicoding.ui.home
+package com.palsaloid.storydicoding.utils
 
 import androidx.lifecycle.ViewModel
 import com.palsaloid.storydicoding.data.StoryRepository

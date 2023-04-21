@@ -25,6 +25,6 @@
         tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/navigation_logout"
-        android:name="com.palsaloid.storydicoding.ui.logout.LogoutFragment"
+        android:name="com.palsaloid.storydicoding.ui.auth.logout.LogoutFragment"
         tools:layout="@layout/fragment_logout" />
 </navigation>

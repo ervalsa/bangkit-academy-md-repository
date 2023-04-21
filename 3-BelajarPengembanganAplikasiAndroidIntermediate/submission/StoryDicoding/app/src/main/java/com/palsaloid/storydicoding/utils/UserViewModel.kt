@@ -1,4 +1,4 @@
-package com.palsaloid.storydicoding.ui.home
+package com.palsaloid.storydicoding.utils
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +8,7 @@ import com.palsaloid.storydicoding.data.local.datastore.UserPreference
 import com.palsaloid.storydicoding.domain.model.User
 import kotlinx.coroutines.launch
 
-class HomeViewModel(private val preferences: UserPreference) : ViewModel() {
+class UserViewModel(private val preferences: UserPreference) : ViewModel() {
 
     fun getUser(): LiveData<User> =
         preferences.getUser().asLiveData()

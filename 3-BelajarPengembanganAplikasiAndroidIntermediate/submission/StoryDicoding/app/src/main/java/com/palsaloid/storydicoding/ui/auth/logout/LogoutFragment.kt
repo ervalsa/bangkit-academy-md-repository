@@ -1,4 +1,4 @@
-package com.palsaloid.storydicoding.ui.logout
+package com.palsaloid.storydicoding.ui.auth.logout
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.palsaloid.storydicoding.ui.register
+package com.palsaloid.storydicoding.ui.auth.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -14,15 +14,15 @@ import com.palsaloid.storydicoding.HomeViewModelFactory
 import com.palsaloid.storydicoding.MainActivity
 import com.palsaloid.storydicoding.data.local.datastore.UserPreference
 import com.palsaloid.storydicoding.databinding.ActivitySplashBinding
-import com.palsaloid.storydicoding.ui.login.LoginActivity
-import com.palsaloid.storydicoding.ui.home.HomeViewModel
+import com.palsaloid.storydicoding.ui.auth.login.LoginActivity
+import com.palsaloid.storydicoding.utils.UserViewModel
 
 private val Context.datastore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashBinding
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var userViewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,15 +40,15 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
-        homeViewModel =
+        userViewModel =
             ViewModelProvider(
                 this,
                 HomeViewModelFactory(UserPreference.getInstance(datastore))
-            )[HomeViewModel::class.java]
+            )[UserViewModel::class.java]
     }
 
     private fun isLogin() {
-        homeViewModel.getUser().observe(this) { user ->
+        userViewModel.getUser().observe(this) { user ->
             if (user.isLogin) {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.palsaloid.storydicoding.StoryViewModelFactory
 import com.palsaloid.storydicoding.data.Result
 import com.palsaloid.storydicoding.databinding.FragmentHomeBinding
+import com.palsaloid.storydicoding.ui.auth.AuthViewModel
+import com.palsaloid.storydicoding.utils.StoryViewModel
 import com.palsaloid.storydicoding.views.CustomRecyclerLayout
 
 class HomeFragment : Fragment() {

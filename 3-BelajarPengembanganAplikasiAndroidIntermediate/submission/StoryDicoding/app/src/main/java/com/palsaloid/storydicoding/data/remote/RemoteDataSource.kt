@@ -1,8 +1,17 @@
 package com.palsaloid.storydicoding.data.remote
 
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Context
+import android.content.Intent
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.palsaloid.storydicoding.MainActivity
+import com.palsaloid.storydicoding.data.Result
+import com.palsaloid.storydicoding.data.remote.response.auth.LoginResponse
+import com.palsaloid.storydicoding.data.remote.response.auth.RegisterResponse
 import com.palsaloid.storydicoding.data.remote.response.story.FileUploadResponse
 import com.palsaloid.storydicoding.data.remote.response.story.ListStoryResponse
 import com.palsaloid.storydicoding.data.remote.response.story.StoryResponse

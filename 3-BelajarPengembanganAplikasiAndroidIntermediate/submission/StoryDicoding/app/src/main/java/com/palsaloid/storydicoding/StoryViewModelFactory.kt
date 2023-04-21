@@ -3,10 +3,10 @@ package com.palsaloid.storydicoding
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.palsaloid.storydicoding.data.StoryRepository
 import com.palsaloid.storydicoding.di.Injection
 import com.palsaloid.storydicoding.domain.usecase.StoryUseCase
-import com.palsaloid.storydicoding.ui.home.StoryViewModel
+import com.palsaloid.storydicoding.ui.auth.AuthViewModel
+import com.palsaloid.storydicoding.utils.StoryViewModel
 
 class StoryViewModelFactory(
     private val storyUseCase: StoryUseCase
@@ -18,6 +18,7 @@ class StoryViewModelFactory(
             modelClass.isAssignableFrom(StoryViewModel::class.java) -> {
                 StoryViewModel(storyUseCase) as T
             }
+
             else -> throw IllegalArgumentException("Unknown ViewModel Class: " + modelClass.name)
         }
     }
