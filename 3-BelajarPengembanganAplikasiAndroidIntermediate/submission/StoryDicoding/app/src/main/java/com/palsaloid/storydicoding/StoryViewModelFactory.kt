@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.palsaloid.storydicoding.di.Injection
 import com.palsaloid.storydicoding.domain.usecase.StoryUseCase
-import com.palsaloid.storydicoding.ui.auth.AuthViewModel
 import com.palsaloid.storydicoding.utils.StoryViewModel
 
 class StoryViewModelFactory(

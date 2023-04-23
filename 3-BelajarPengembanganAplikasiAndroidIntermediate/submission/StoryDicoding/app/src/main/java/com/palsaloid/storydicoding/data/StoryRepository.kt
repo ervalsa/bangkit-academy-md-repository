@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import com.palsaloid.storydicoding.data.local.LocalDataSource
 import com.palsaloid.storydicoding.data.remote.RemoteDataSource
+import com.palsaloid.storydicoding.data.remote.response.story.FileUploadResponse
 import com.palsaloid.storydicoding.data.remote.response.story.StoryResponse
 import com.palsaloid.storydicoding.data.remote.retrofit.ApiResult
 import com.palsaloid.storydicoding.domain.model.Story
@@ -13,6 +14,7 @@ import com.palsaloid.storydicoding.utils.AppExecutors
 import com.palsaloid.storydicoding.utils.DataMapper
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import java.io.File
 
 class StoryRepository private constructor(
     private val remoteDataSource: RemoteDataSource,
@@ -39,10 +41,6 @@ class StoryRepository private constructor(
                 localDataSource.insertStory(storyList)
             }
         }.asLiveData()
-
-    override fun addStory(token: String, imageFile: MultipartBody.Part, description: RequestBody) {
-        remoteDataSource.addStory(token, imageFile, description)
-    }
 
     companion object {
         @Volatile

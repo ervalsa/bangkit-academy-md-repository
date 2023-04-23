@@ -10,6 +10,4 @@ import okhttp3.RequestBody
 interface StoryUseCase {
 
     fun getAllStory(token: String): LiveData<Result<List<Story>>>
-
-    fun addStory(token: String, imageFile: MultipartBody.Part, description: RequestBody)
 }
