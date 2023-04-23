@@ -12,6 +12,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.palsaloid.storydicoding.HomeViewModelFactory
 import com.palsaloid.storydicoding.R
 import com.palsaloid.storydicoding.data.Result
@@ -20,6 +21,7 @@ import com.palsaloid.storydicoding.data.remote.response.story.StoryResponse
 import com.palsaloid.storydicoding.databinding.FragmentDetailBinding
 import com.palsaloid.storydicoding.domain.model.Story
 import com.palsaloid.storydicoding.utils.UserViewModel
+import com.palsaloid.storydicoding.utils.withDateFormat
 
 private val Context.datastore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 class DetailFragment : Fragment() {
@@ -55,6 +57,12 @@ class DetailFragment : Fragment() {
 
         detailViewModel.storyData.observe(viewLifecycleOwner) { storyDetail ->
             binding.tvNameStory.text = storyDetail.story.name
+            binding.tvDate.withDateFormat(storyDetail.story.createdAt)
+            binding.tvDescriptionStory.text = storyDetail.story.description
+            Glide.with(binding.root)
+                .load(storyDetail.story.photoUrl)
+                .placeholder(R.drawable.ic_replay)
+                .into(binding.imgStory)
         }
     }
 

@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-private const val FILENAME_FORMAT = "dd-MM-yyyy"
+private const val FILENAME_FORMAT = "dd-MMM-yyyy"
 
 fun TextView.withDateFormat(createdAt: String) {
     val format = SimpleDateFormat("yyyy-MM-dd", Locale.US)
