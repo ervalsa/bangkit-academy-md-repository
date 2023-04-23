@@ -25,4 +25,11 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet ipsum dolor lorem si dolor ipsum sit amet, dolor ipsum sit amet dolor</string>
     <string name="story_image_description">Story Image</string>
     <string name="story_date">Saturday, 23 March 2023</string>
+    <string name="content_image_gallery">Image Gallery</string>
+    <string name="content_image_camera">Image Camera</string>
+    <string name="create_story">Create Story</string>
+    <string name="placeholder_photo_upload">Placeholder Photo Upload</string>
+    <string name="title_photo">Photo</string>
+    <string name="title_description">Description</string>
+    <string name="description_hint">Write your great story here</string>
 </resources>
