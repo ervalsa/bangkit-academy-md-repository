@@ -7,6 +7,7 @@ import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -79,7 +80,7 @@ class AddStoryActivity : AppCompatActivity() {
 
                 else -> {
                     if (getFile != null) {
-                        val requestFile = reduceFileImage(getFile as File, cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
+                        val requestFile = reduceFileImage(getFile as File)
                         val requestDescription = edt_description.text.toString().toRequestBody("text/plain".toMediaType())
                         val requestImageFile = requestFile.asRequestBody("image/jpeg".toMediaType())
                         val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
@@ -111,7 +112,7 @@ class AddStoryActivity : AppCompatActivity() {
 
                                             val intent = Intent(this@AddStoryActivity, MainActivity::class.java)
                                             startActivity(intent)
-                                            finish()
+                                            finishAffinity()
                                         }
 
                                         is ApiResult.Error -> {
@@ -153,19 +154,19 @@ class AddStoryActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == CAMERA_X_RESULT) {
-            val file = result.data?.getSerializableExtra("picture") as File
-            val isBackCamera = result.data?.getBooleanExtra(
-                "isBackCamera",
-                cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA
-            ) as Boolean
-            getFile = file
+            val myFile = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                result.data?.getSerializableExtra("picture", File::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                result.data?.getSerializableExtra("picture")
+            } as File
 
-            val resultPhoto = rotateBitmap(
-                BitmapFactory.decodeFile(getFile?.path),
-                isBackCamera
-            )
-
-            binding.imgPhotoStory.setImageBitmap(resultPhoto)
+            val isBackCamera = result.data?.getBooleanExtra("isBackCamera", true) as Boolean
+            myFile.let { file ->
+                rotateBitmap(file, isBackCamera)
+                getFile = file
+                binding.imgPhotoStory.setImageBitmap(BitmapFactory.decodeFile(file.path))
+            }
         }
     }
 
