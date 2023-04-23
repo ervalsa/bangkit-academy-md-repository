@@ -7,30 +7,25 @@ import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.palsaloid.storydicoding.HomeViewModelFactory
 import com.palsaloid.storydicoding.MainActivity
-import com.palsaloid.storydicoding.StoryViewModelFactory
 import com.palsaloid.storydicoding.data.local.datastore.UserPreference
 import com.palsaloid.storydicoding.data.remote.retrofit.ApiResult
 import com.palsaloid.storydicoding.databinding.ActivityAddStoryBinding
-import com.palsaloid.storydicoding.domain.model.User
 import com.palsaloid.storydicoding.ui.add_story.camera.CameraActivity
-import com.palsaloid.storydicoding.utils.StoryViewModel
 import com.palsaloid.storydicoding.utils.UserViewModel
 import com.palsaloid.storydicoding.utils.reduceFileImage
 import com.palsaloid.storydicoding.utils.rotateBitmap
@@ -84,7 +79,7 @@ class AddStoryActivity : AppCompatActivity() {
 
                 else -> {
                     if (getFile != null) {
-                        val requestFile = reduceFileImage(getFile as File)
+                        val requestFile = reduceFileImage(getFile as File, cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
                         val requestDescription = edt_description.text.toString().toRequestBody("text/plain".toMediaType())
                         val requestImageFile = requestFile.asRequestBody("image/jpeg".toMediaType())
                         val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
@@ -165,12 +160,12 @@ class AddStoryActivity : AppCompatActivity() {
             ) as Boolean
             getFile = file
 
-            val result = rotateBitmap(
+            val resultPhoto = rotateBitmap(
                 BitmapFactory.decodeFile(getFile?.path),
                 isBackCamera
             )
 
-            binding.imgPhotoStory.setImageBitmap(result)
+            binding.imgPhotoStory.setImageBitmap(resultPhoto)
         }
     }
 
