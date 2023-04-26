@@ -23,6 +23,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import com.palsaloid.storydicoding.HomeViewModelFactory
 import com.palsaloid.storydicoding.MainActivity
+import com.palsaloid.storydicoding.R
 import com.palsaloid.storydicoding.data.local.datastore.UserPreference
 import com.palsaloid.storydicoding.data.remote.retrofit.ApiResult
 import com.palsaloid.storydicoding.databinding.ActivityAddStoryBinding
@@ -55,7 +56,7 @@ class AddStoryActivity : AppCompatActivity() {
         setupAddStoryViewModel()
         setupUserViewModel()
 
-        supportActionBar?.title = "Add Story"
+        supportActionBar?.title = resources.getString(R.string.create_story)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val edt_description = binding.edtDescription

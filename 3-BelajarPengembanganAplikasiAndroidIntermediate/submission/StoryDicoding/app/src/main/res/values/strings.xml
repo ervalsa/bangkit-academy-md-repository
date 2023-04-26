@@ -32,4 +32,5 @@
     <string name="title_photo">Photo</string>
     <string name="title_description">Description</string>
     <string name="description_hint">Write your great story here</string>
+    <string name="change_language">Change Language</string>
 </resources>
