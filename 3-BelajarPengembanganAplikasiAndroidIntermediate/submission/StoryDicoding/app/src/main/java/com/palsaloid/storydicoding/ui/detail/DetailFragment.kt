@@ -3,23 +3,19 @@ package com.palsaloid.storydicoding.ui.detail
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.palsaloid.storydicoding.HomeViewModelFactory
 import com.palsaloid.storydicoding.R
-import com.palsaloid.storydicoding.data.Result
 import com.palsaloid.storydicoding.data.local.datastore.UserPreference
-import com.palsaloid.storydicoding.data.remote.response.story.StoryResponse
 import com.palsaloid.storydicoding.databinding.FragmentDetailBinding
-import com.palsaloid.storydicoding.domain.model.Story
 import com.palsaloid.storydicoding.utils.UserViewModel
 import com.palsaloid.storydicoding.utils.withDateFormat
 

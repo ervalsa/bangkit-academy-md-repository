@@ -4,7 +4,6 @@ import com.palsaloid.storydicoding.data.remote.response.auth.LoginResponse
 import com.palsaloid.storydicoding.data.remote.response.auth.RegisterResponse
 import com.palsaloid.storydicoding.data.remote.response.story.DetailStoryResponse
 import com.palsaloid.storydicoding.data.remote.response.story.FileUploadResponse
-import com.palsaloid.storydicoding.data.remote.response.story.StoryResponse
 import com.palsaloid.storydicoding.data.remote.response.story.ListStoryResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody

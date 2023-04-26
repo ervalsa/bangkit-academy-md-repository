@@ -1,6 +1,5 @@
 package com.palsaloid.storydicoding.ui.home
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
@@ -11,7 +10,6 @@ import com.bumptech.glide.Glide
 import com.palsaloid.storydicoding.R
 import com.palsaloid.storydicoding.databinding.ItemStoryBinding
 import com.palsaloid.storydicoding.domain.model.Story
-import com.palsaloid.storydicoding.ui.detail.DetailFragment
 
 class ListStoryAdapter : ListAdapter<Story, ListStoryAdapter.ListViewHolder>(DIFF_CALLBACK) {
 

@@ -1,23 +1,16 @@
 package com.palsaloid.storydicoding.ui.auth.register
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
-import com.palsaloid.storydicoding.HomeViewModelFactory
 import com.palsaloid.storydicoding.data.Result
-import com.palsaloid.storydicoding.data.local.datastore.UserPreference
 import com.palsaloid.storydicoding.databinding.ActivityRegisterBinding
 import com.palsaloid.storydicoding.ui.auth.AuthViewModel
 import com.palsaloid.storydicoding.ui.auth.login.LoginActivity
-import com.palsaloid.storydicoding.utils.UserViewModel
 
 class RegisterActivity : AppCompatActivity() {
 

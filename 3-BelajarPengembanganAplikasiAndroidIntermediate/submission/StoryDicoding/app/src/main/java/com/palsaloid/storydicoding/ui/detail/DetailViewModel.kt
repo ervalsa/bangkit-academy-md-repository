@@ -4,10 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.palsaloid.storydicoding.data.Result
 import com.palsaloid.storydicoding.data.remote.response.story.DetailStoryResponse
-import com.palsaloid.storydicoding.data.remote.response.story.ListStoryResponse
-import com.palsaloid.storydicoding.data.remote.response.story.StoryResponse
 import com.palsaloid.storydicoding.data.remote.retrofit.ApiConfig
 import retrofit2.Call
 import retrofit2.Callback

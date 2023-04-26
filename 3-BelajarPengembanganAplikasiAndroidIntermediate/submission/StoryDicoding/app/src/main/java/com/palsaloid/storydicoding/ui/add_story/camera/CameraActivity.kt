@@ -1,16 +1,15 @@
 package com.palsaloid.storydicoding.ui.add_story.camera
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
-import com.palsaloid.storydicoding.R
 import com.palsaloid.storydicoding.databinding.ActivityCameraBinding
 import com.palsaloid.storydicoding.ui.add_story.AddStoryActivity
 import com.palsaloid.storydicoding.utils.createFile
