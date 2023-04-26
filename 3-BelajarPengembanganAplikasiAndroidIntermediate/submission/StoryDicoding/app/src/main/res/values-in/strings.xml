@@ -34,4 +34,7 @@
     <string name="title_description">Deskripsi</string>
     <string name="description_hint">Tuliskan cerita menarikmu disini..</string>
     <string name="change_language">Ganti Bahasa</string>
+    <string name="appwidget_text">Cerita-cerita</string>
+    <string name="add_widget">Tambah Widget</string>
+    <string name="empty_text">Tidak ada Data</string>
 </resources>

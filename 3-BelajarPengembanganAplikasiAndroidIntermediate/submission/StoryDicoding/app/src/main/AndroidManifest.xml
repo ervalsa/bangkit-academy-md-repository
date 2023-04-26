@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StoryDicoding"
         tools:targetApi="31">
+
         <activity
             android:name=".ui.add_story.camera.CameraActivity"
             android:exported="false" />
@@ -43,9 +44,24 @@
             </intent-filter>
         </activity>
 
+        <receiver
+            android:name=".widget.ImageStoryWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/image_story_widget_info" />
+        </receiver>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <service android:name=".widget.StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
     </application>
 
 </manifest>
