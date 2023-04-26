@@ -126,6 +126,12 @@ class AddStoryActivity : AppCompatActivity() {
                                 }
                             }
                         }
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "Gambar belum dipilih",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
