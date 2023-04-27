@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Story Dicoding</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_map">Maps</string>
+    <string name="menu_setting">Settings</string>
+    <string name="action_camera">Camera</string>
+    <string name="developer_name">Ervalsa Dwi Nanda</string>
+    <string name="developer_email">ervalsananda@gmail.com</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_home">Home</string>
+    <string name="app_title">Story\nDicoding</string>
+    <string name="content_illustration">Illustration</string>
+    <string name="title_sign_in">Sign In</string>
+    <string name="title_email">Email</string>
+    <string name="title_password">Password</string>
+    <string name="hint_password">Your password</string>
+    <string name="hint_email">Your email</string>
+    <string name="title_show_password">Show Password</string>
+    <string name="title_login">Login</string>
+    <string name="title_register">Register</string>
+    <string name="title_sign_up">SIGN UP</string>
+    <string name="hint_name">Your name</string>
+    <string name="title_fullname">Fullname</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet ipsum dolor lorem si dolor ipsum sit amet, dolor ipsum sit amet dolor</string>
+    <string name="story_image_description">Story Image</string>
+    <string name="story_date">Saturday, 23 March 2023</string>
+    <string name="content_image_gallery">Image Gallery</string>
+    <string name="content_image_camera">Image Camera</string>
+    <string name="create_story">Create Story</string>
+    <string name="placeholder_photo_upload">Placeholder Photo Upload</string>
+    <string name="title_photo">Photo</string>
+    <string name="title_description">Description</string>
+    <string name="description_hint">Write your great story here</string>
+    <string name="change_language">Change Language</string>
+    <string name="appwidget_text">Stories</string>
+    <string name="add_widget">Add widget</string>
+    <string name="empty_text">NO DATA</string>
+</resources>

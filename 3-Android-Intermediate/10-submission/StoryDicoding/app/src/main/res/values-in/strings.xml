@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Story Dicoding</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_map">Peta</string>
+    <string name="menu_setting">Pengaturan</string>
+    <string name="action_camera">Kamera</string>
+    <string name="developer_name">Ervalsa Dwi Nanda</string>
+    <string name="developer_email">ervalsananda@gmail.com</string>
+    <string name="menu_logout">Keluar</string>
+    <string name="menu_home">Beranda</string>
+    <string name="app_title">Cerita\nDicoding</string>
+    <string name="content_illustration">Ilustrasi</string>
+    <string name="title_sign_in">Masuk</string>
+    <string name="title_email">Alamat Surel</string>
+    <string name="title_password">Kata Sandi</string>
+    <string name="hint_password">Kata Sandi Anda</string>
+    <string name="hint_email">Alamat Surel Anda</string>
+    <string name="title_show_password">Lihat Kata Sandi</string>
+    <string name="title_login">Masuk</string>
+    <string name="title_register">Daftar</string>
+    <string name="title_sign_up">Daftar</string>
+    <string name="hint_name">Nama Anda</string>
+    <string name="title_fullname">Nama Lengkap</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet ipsum dolor lorem si dolor ipsum sit amet, dolor ipsum sit amet dolor</string>
+    <string name="story_image_description">Gambar Cerita</string>
+    <string name="story_date">Saturday, 23 March 2023</string>
+    <string name="content_image_gallery">Gambar Galeri</string>
+    <string name="content_image_camera">"Gambar Kamera "</string>
+    <string name="create_story">Tambah Cerita</string>
+    <string name="placeholder_photo_upload">Placeholder Photo Upload</string>
+    <string name="title_photo">Foto</string>
+    <string name="title_description">Deskripsi</string>
+    <string name="description_hint">Tuliskan cerita menarikmu disini..</string>
+    <string name="change_language">Ganti Bahasa</string>
+    <string name="appwidget_text">Cerita-cerita</string>
+    <string name="add_widget">Tambah Widget</string>
+    <string name="empty_text">Tidak ada Data</string>
+</resources>
