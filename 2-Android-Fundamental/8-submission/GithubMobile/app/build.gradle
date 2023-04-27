@@ -1,0 +1,114 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+//    id 'androidx.navigation.safeargs'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.palsaloid.githubmobile'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.palsaloid.githubmobile"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField ("String", "API_KEY", "''")
+        buildConfigField ("String", "BASE_URL", '"https://api.github.com/"')
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // Activity & Fragment KTX
+    def activity_ktx_version = '1.6.1'
+    def fragment_ktx_version = '1.5.5'
+    implementation "androidx.activity:activity-ktx:$activity_ktx_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
+
+    // Glide
+    def glide_version = '4.11.0'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+
+    // Retrofit
+    def retrofit2_version = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2_version"
+
+    // OkHttp3
+    def okhttp3_version = '4.10.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
+
+    // datastore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    // ViewModel & LiveData
+    def viewmodel_version = '2.6.1'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$viewmodel_version"
+
+    // Navigation
+    def navigation_version = '2.5.3'
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+
+    // ViewPager2
+    def viewpager2_version = '1.0.0'
+    implementation "androidx.viewpager2:viewpager2:$viewpager2_version"
+
+    // Room
+    def room_version = '2.5.1'
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // Coroutine
+    def coroutine_version = '1.6.4'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+
+    // preference
+    def preference_version = '1.2.0'
+    implementation "androidx.preference:preference-ktx:$preference_version"
+
+    // Splash Screen
+    def splashscreen_version = '1.0.0'
+    implementation "androidx.core:core-splashscreen:$splashscreen_version"
+
+    // Sliding Pane Layout
+    def slidingpanelayout_version = '1.2.0'
+    implementation "androidx.slidingpanelayout:slidingpanelayout:$slidingpanelayout_version"
+}
