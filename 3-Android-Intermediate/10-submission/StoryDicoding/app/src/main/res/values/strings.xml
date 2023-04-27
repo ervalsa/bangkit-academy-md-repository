@@ -36,4 +36,5 @@
     <string name="appwidget_text">Stories</string>
     <string name="add_widget">Add widget</string>
     <string name="empty_text">NO DATA</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
