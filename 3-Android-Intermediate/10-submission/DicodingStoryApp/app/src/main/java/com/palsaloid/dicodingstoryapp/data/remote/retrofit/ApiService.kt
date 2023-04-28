@@ -35,6 +35,11 @@ interface ApiService {
         @Field("password") password: String
     ) : Call<RegisterResponse>
 
+    @GET("stories")
+    fun getStories(
+        @Header("Authorization") token: String
+    ) : StoryResponse
+
     @GET("stories?location=1")
     fun getStoryLocation(
         @Header("Authorization") token: String
