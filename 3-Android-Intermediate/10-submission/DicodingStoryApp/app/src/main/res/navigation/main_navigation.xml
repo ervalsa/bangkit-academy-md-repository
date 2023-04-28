@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.palsaloid.dicodingstoryapp.HomeFragment"
+        android:name="com.palsaloid.dicodingstoryapp.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 </navigation>

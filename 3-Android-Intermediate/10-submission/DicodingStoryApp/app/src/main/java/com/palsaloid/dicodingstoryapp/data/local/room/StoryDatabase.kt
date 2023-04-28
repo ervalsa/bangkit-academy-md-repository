@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.palsaloid.dicodingstoryapp.data.model.RemoteKeys
 import com.palsaloid.dicodingstoryapp.data.remote.response.story.StoryItem
 
-@Database(entities = [StoryItem::class], version = 1, exportSchema = false)
+@Database(entities = [StoryItem::class, RemoteKeys::class], version = 1, exportSchema = false)
 abstract class StoryDatabase : RoomDatabase() {
 
     abstract fun storyDao() : StoryDao
+
+    abstract fun remoteKeysDao() : RemoteKeyDao
 
     companion object {
         @Volatile

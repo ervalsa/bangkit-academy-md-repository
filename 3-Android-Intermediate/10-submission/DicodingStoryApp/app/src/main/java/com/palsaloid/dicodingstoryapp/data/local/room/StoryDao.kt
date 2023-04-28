@@ -1,6 +1,7 @@
 package com.palsaloid.dicodingstoryapp.data.local.room
 
 import androidx.lifecycle.LiveData
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -11,7 +12,7 @@ import com.palsaloid.dicodingstoryapp.data.remote.response.story.StoryItem
 interface StoryDao {
 
     @Query("SELECT * FROM story")
-    fun getStories() : LiveData<List<StoryItem>>
+    fun getStories() : PagingSource<Int, StoryItem>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertStory(news: List<StoryItem>)
