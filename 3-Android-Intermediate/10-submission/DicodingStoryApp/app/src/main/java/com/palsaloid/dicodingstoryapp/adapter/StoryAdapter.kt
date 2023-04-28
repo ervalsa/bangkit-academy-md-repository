@@ -19,22 +19,22 @@ class StoryAdapter : PagingDataAdapter<StoryItem, StoryAdapter.ListViewHolder>(D
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val stories = getItem(position)
-        stories?.let { holder.bind(it) }
-//
-//        holder.itemView.setOnClickListener {
-//            val story = StoryItem(
-//                stories.id,
-//                stories.name,
-//                stories.description,
-//                stories.photoUrl,
-//                stories.createdAt,
-//                stories.lat,
-//                stories.lon
-//            )
-//
-//
-//        }
+        val stories: StoryItem? = getItem(position)
+        if  (stories != null) {
+            holder.bind(stories)
+
+            holder.itemView.setOnClickListener {
+                val story = StoryItem(
+                    stories.id,
+                    stories.name,
+                    stories.description,
+                    stories.photoUrl,
+                    stories.createdAt,
+                    stories.lat,
+                    stories.lon
+                )
+            }
+        }
     }
 
     inner class ListViewHolder(private val binding: ItemStoryBinding) :
@@ -51,6 +51,7 @@ class StoryAdapter : PagingDataAdapter<StoryItem, StoryAdapter.ListViewHolder>(D
                     .into(binding.imgStory)
             }
     }
+
 
     companion object {
         val DIFF_CALLBACK: DiffUtil.ItemCallback<StoryItem> =

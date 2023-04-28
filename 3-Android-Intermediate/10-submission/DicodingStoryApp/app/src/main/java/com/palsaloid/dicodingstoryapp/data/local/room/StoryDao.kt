@@ -1,6 +1,5 @@
 package com.palsaloid.dicodingstoryapp.data.local.room
 
-import androidx.lifecycle.LiveData
 import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert

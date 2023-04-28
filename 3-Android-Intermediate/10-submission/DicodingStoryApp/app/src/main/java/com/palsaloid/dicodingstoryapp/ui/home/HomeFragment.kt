@@ -18,6 +18,7 @@ import com.palsaloid.dicodingstoryapp.customview.CustomRecyclerLayout
 import com.palsaloid.dicodingstoryapp.data.Result
 import com.palsaloid.dicodingstoryapp.databinding.FragmentHomeBinding
 import com.palsaloid.dicodingstoryapp.ui.StoryViewModelFactory
+import com.palsaloid.dicodingstoryapp.utils.LoadingStateAdapter
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 class HomeFragment : Fragment() {
@@ -52,7 +53,11 @@ class HomeFragment : Fragment() {
             layoutManager = linearlayoutManager
 
             setHasFixedSize(true)
-            adapter = storyAdapter
+            adapter = storyAdapter.withLoadStateFooter(
+                footer = LoadingStateAdapter {
+                    storyAdapter.retry()
+                }
+            )
         }
     }
 
