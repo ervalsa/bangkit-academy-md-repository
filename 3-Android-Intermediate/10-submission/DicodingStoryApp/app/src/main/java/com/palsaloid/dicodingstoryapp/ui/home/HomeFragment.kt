@@ -16,11 +16,12 @@ import com.palsaloid.dicodingstoryapp.R
 import com.palsaloid.dicodingstoryapp.adapter.StoryAdapter
 import com.palsaloid.dicodingstoryapp.customview.CustomRecyclerLayout
 import com.palsaloid.dicodingstoryapp.data.Result
+import com.palsaloid.dicodingstoryapp.data.local.datastore.UserPreference
 import com.palsaloid.dicodingstoryapp.databinding.FragmentHomeBinding
 import com.palsaloid.dicodingstoryapp.ui.StoryViewModelFactory
 import com.palsaloid.dicodingstoryapp.utils.LoadingStateAdapter
 
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+private val Context.datastore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -38,12 +39,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val factory: StoryViewModelFactory = StoryViewModelFactory.getInstance(requireActivity())
+        val userPreference = UserPreference.getInstance(requireActivity().datastore)
+        val factory: StoryViewModelFactory = StoryViewModelFactory.getInstance(requireActivity(), userPreference)
         val viewModel: HomeViewModel by viewModels { factory }
 
         val storyAdapter = StoryAdapter()
 
-        viewModel.getStories("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLTNoSkY1TzFYdXJiX3JwMmwiLCJpYXQiOjE2ODI2ODYzMjN9.KyDTuzA2xWshc1sRVrk6PmpCylnkXcbKAzNi_CTIIS8").observe(viewLifecycleOwner) { result ->
+        viewModel.getStories.observe(viewLifecycleOwner) { result ->
             storyAdapter.submitData(lifecycle, result)
         }
 
