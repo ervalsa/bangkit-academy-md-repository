@@ -36,4 +36,8 @@
     <string name="retry">Coba lagi</string>
     <string name="login_status_failed">Login Failed, please check again your email or password</string>
     <string name="login_status_success">Login Success, you will bring into Main Menu</string>
+    <string name="register_status_failed">Failed to register account</string>
+    <string name="alert_title">Congratulation!!!</string>
+    <string name="alert_message">Thank you for registering, enjoy your day</string>
+    <string name="alert_positive_button">Continue</string>
 </resources>

@@ -19,6 +19,7 @@ import com.palsaloid.dicodingstoryapp.data.local.datastore.UserPreference
 import com.palsaloid.dicodingstoryapp.data.model.UserModel
 import com.palsaloid.dicodingstoryapp.databinding.ActivityLoginBinding
 import com.palsaloid.dicodingstoryapp.ui.auth.AuthViewModel
+import com.palsaloid.dicodingstoryapp.ui.auth.register.RegisterActivity
 import com.palsaloid.dicodingstoryapp.utils.UserViewModel
 import com.palsaloid.dicodingstoryapp.utils.UserViewModelFactory
 
@@ -64,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
                     is Result.Success -> {
                         userViewModel.saveUser(
                             UserModel(
-                                name = email,
+                                name = result.data.loginResult.name,
                                 token = result.data.loginResult.token,
                                 isLogin = true
                             )
@@ -86,6 +87,11 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+
+        binding.btnRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 
