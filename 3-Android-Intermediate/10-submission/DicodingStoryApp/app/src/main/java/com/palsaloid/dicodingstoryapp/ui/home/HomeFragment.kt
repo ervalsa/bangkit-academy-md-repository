@@ -55,16 +55,15 @@ class HomeFragment : Fragment() {
             layoutManager = linearlayoutManager
 
             setHasFixedSize(true)
-            adapter = storyAdapter.withLoadStateFooter(
+            adapter = storyAdapter.withLoadStateHeaderAndFooter(
+                header = LoadingStateAdapter {
+                    storyAdapter.retry()
+                },
                 footer = LoadingStateAdapter {
                     storyAdapter.retry()
                 }
             )
         }
-    }
-
-    private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.INVISIBLE
     }
 
     override fun onDestroyView() {
