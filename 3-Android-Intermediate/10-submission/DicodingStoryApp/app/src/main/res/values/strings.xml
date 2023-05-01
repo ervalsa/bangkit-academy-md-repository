@@ -48,4 +48,5 @@
     <string name="add_story_success">Successfully created a story</string>
     <string name="add_story_failed">Failed to create story</string>
     <string name="picture_status">No pictures were taken/selected</string>
+    <string name="detail_status">Failed to load detail data</string>
 </resources>

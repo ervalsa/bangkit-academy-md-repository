@@ -2,6 +2,7 @@ package com.palsaloid.dicodingstoryapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -10,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.palsaloid.dicodingstoryapp.R
 import com.palsaloid.dicodingstoryapp.data.remote.response.story.StoryItem
 import com.palsaloid.dicodingstoryapp.databinding.ItemStoryBinding
+import com.palsaloid.dicodingstoryapp.ui.home.HomeFragmentDirections
 
 class StoryAdapter : PagingDataAdapter<StoryItem, StoryAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
@@ -33,6 +35,10 @@ class StoryAdapter : PagingDataAdapter<StoryItem, StoryAdapter.ListViewHolder>(D
                     stories.lat,
                     stories.lon
                 )
+
+                val toDetailFragment = HomeFragmentDirections.actionNavigationHomeToDetailFragment()
+                toDetailFragment.id = story.id
+                holder.itemView.findNavController().navigate(toDetailFragment)
             }
         }
     }
