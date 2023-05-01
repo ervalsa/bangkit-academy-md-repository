@@ -21,10 +21,10 @@
     <string name="hint_name">Your name</string>
     <string name="title_fullname">Fullname</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet ipsum dolor lorem si dolor ipsum sit amet, dolor ipsum sit amet dolor</string>
-    <string name="story_image_description">Story Image</string>
+    <string name="story_image_description" translatable="false">Story Image</string>
     <string name="story_date">Saturday, 23 March 2023</string>
-    <string name="content_image_gallery">Image Gallery</string>
-    <string name="content_image_camera">Image Camera</string>
+    <string name="content_image_gallery" translatable="false">Image Gallery</string>
+    <string name="content_image_camera" translatable="false">Image Camera</string>
     <string name="create_story">Create Story</string>
     <string name="placeholder_photo_upload">Placeholder Photo Upload</string>
     <string name="title_photo">Photo</string>
@@ -33,7 +33,7 @@
     <string name="change_language">Change Language</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="retry">Coba lagi</string>
+    <string name="retry">Try Again</string>
     <string name="login_status_failed">Login Failed, please check again your email or password</string>
     <string name="login_status_success">Login Success, you will bring into Main Menu</string>
     <string name="register_status_failed">Failed to register account</string>
@@ -53,6 +53,13 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
+    <string name="application_language">Application Language</string>
+    <string name="key_language" translatable="false">Language</string>
+    <string name="logout">Logout</string>
+    <string name="logout_title">Want to exit?</string>
+    <string name="logout_message">Really want to quit the app?</string>
+    <string name="logout_negative">Nahh, just kidding</string>
+    <string name="logout_positive">Nope, just let me out</string>
 </resources>

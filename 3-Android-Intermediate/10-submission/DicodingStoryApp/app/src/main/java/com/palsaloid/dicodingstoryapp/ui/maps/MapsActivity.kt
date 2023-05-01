@@ -2,7 +2,9 @@ package com.palsaloid.dicodingstoryapp.ui.maps
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +18,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
 import com.palsaloid.dicodingstoryapp.R
 import com.palsaloid.dicodingstoryapp.data.local.datastore.UserPreference
@@ -40,6 +43,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(binding.root)
 
         setupUserViewModel()
+
+        supportActionBar?.title = resources.getString(R.string.menu_map)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.fragment_map) as SupportMapFragment
@@ -78,6 +84,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(indonesiaLocation, 3f))
 
         getLocation()
+        setMapStyle()
+    }
+
+    private fun setMapStyle() {
+        try {
+            val success =
+                mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_style))
+
+            if (!success) {
+                Log.e("MapActivity", "Style parsing failed.")
+            }
+        } catch (e: Resources.NotFoundException) {
+            Log.e("MapActivity", "Can't find style. Error: ", e)
+        }
     }
 
     private val requestPermissionLauncher = registerForActivityResult(
@@ -123,5 +143,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             UserViewModelFactory(
                 UserPreference.getInstance(dataStore))
         )[UserViewModel::class.java]
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

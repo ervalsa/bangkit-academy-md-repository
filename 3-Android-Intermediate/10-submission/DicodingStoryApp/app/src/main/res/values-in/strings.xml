@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cerita Dicoding</string>
+    <string name="menu_map">Peta</string>
+    <string name="menu_setting">Pengaturan</string>
+    <string name="action_camera">Kamera</string>
+    <string name="developer_name">Ervalsa Dwi Nanda</string>
+    <string name="developer_email">ervalsananda@gmail.com</string>
+    <string name="menu_logout">Keluar</string>
+    <string name="menu_home">Beranda</string>
+    <string name="app_title">Story\nDicoding</string>
+    <string name="content_illustration">Ilustrasi</string>
+    <string name="title_sign_in">Masuk</string>
+    <string name="title_email">Alamat Surel</string>
+    <string name="title_password">Kata Sandi</string>
+    <string name="hint_password">Password Anda</string>
+    <string name="hint_email">Email Anda</string>
+    <string name="title_show_password">Perlihatkan Kata Sandi</string>
+    <string name="title_login">Masuk</string>
+    <string name="title_register">Daftar</string>
+    <string name="title_sign_up">DAFTAR</string>
+    <string name="hint_name">Nama Anda</string>
+    <string name="title_fullname">Nama Lengkap</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet ipsum dolor lorem si dolor ipsum sit amet, dolor ipsum sit amet dolor</string>
+    <string name="story_image_description">Story Image</string>
+    <string name="story_date">Saturday, 23 March 2023</string>
+    <string name="content_image_gallery">Image Gallery</string>
+    <string name="content_image_camera">Image Camera</string>
+    <string name="create_story">Buat Cerita</string>
+    <string name="placeholder_photo_upload">Placeholder Photo Upload</string>
+    <string name="title_photo">Foto</string>
+    <string name="title_description">Deskripsi</string>
+    <string name="description_hint">Tuliskan cerita menarikmu disini</string>
+    <string name="change_language">Ganti Bahasa</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="retry">Coba lagi</string>
+    <string name="login_status_failed">Login gagal, coba periksa kembali email dan password anda</string>
+    <string name="login_status_success">Login berhasil, kamu akan dibawa ke halaman utama</string>
+    <string name="register_status_failed">Gagal mendaftarkan akun</string>
+    <string name="alert_title">Selamat!!!</string>
+    <string name="alert_message">Terima kasih telah mendaftar, nikmati hari anda</string>
+    <string name="alert_positive_button">Lanjutkan</string>
+    <string name="share_location">Bagikan lokasi?</string>
+    <string name="not_getting_permission">Tidak mendapatkan perizinan</string>
+    <string name="choose_image">Pilih Gambar</string>
+    <string name="enable_gps">Tidak mendapatkan lokasi anda, silahkan hidupkan GPS</string>
+    <string name="insert_description">Mohon masukkan deskripsi disini!</string>
+    <string name="add_story_success">Berhasil membuat cerita</string>
+    <string name="add_story_failed">Gagal membuat cerita</string>
+    <string name="picture_status">Tidak ada gambar yang diambil/dipilih</string>
+    <string name="detail_status">Gagal memuat detail data</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="application_language">Application Language</string>
+    <string name="key_language" translatable="false">Language</string>
+    <string name="logout">keluar</string>
+    <string name="logout_title">Ingin keluar?</string>
+    <string name="logout_message">Beneran ingin keluar dari aplikasi?</string>
+    <string name="logout_negative">Gak kok, canda aja</string>
+    <string name="logout_positive">Sshh, biarkan aku keluar</string>
+</resources>

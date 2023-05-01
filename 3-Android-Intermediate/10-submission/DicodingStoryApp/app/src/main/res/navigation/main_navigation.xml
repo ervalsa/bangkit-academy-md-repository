@@ -32,4 +32,14 @@
         android:name="com.palsaloid.dicodingstoryapp.ui.maps.MapsActivity"
         android:label="activity_maps"
         tools:layout="@layout/activity_maps" />
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.palsaloid.dicodingstoryapp.ui.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/navigation_logout"
+        android:name="com.palsaloid.dicodingstoryapp.ui.auth.logout.LogoutFragment"
+        android:label="fragment_logout"
+        tools:layout="@layout/fragment_logout" />
 </navigation>
