@@ -40,4 +40,12 @@
     <string name="alert_title">Congratulation!!!</string>
     <string name="alert_message">Thank you for registering, enjoy your day</string>
     <string name="alert_positive_button">Continue</string>
+    <string name="share_location">Share Location?</string>
+    <string name="not_getting_permission">Not getting permission</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="enable_gps">Unable to get your location. Please enable your GPS</string>
+    <string name="insert_description">Please insert description here!</string>
+    <string name="add_story_success">Successfully created a story</string>
+    <string name="add_story_failed">Failed to create story</string>
+    <string name="picture_status">No pictures were taken/selected</string>
 </resources>

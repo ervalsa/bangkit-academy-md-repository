@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.palsaloid.dicodingstoryapp.databinding.ActivityMainBinding
+import com.palsaloid.dicodingstoryapp.ui.add_story.AddStoryActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,8 +52,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_camera -> {
-//                val intent = Intent(this, AddStoryActivity::class.java)
-//                startActivity(intent)
+                val intent = Intent(this, AddStoryActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)
