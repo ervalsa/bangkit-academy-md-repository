@@ -49,4 +49,10 @@
     <string name="add_story_failed">Failed to create story</string>
     <string name="picture_status">No pictures were taken/selected</string>
     <string name="detail_status">Failed to load detail data</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 </resources>

@@ -27,4 +27,9 @@
             app:argType="string"
             android:defaultValue="default_id" />
     </fragment>
+    <activity
+        android:id="@+id/navigation_activity_map"
+        android:name="com.palsaloid.dicodingstoryapp.ui.maps.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" />
 </navigation>
