@@ -9,14 +9,13 @@ import com.palsaloid.dicodingstoryapp.di.Injection
 import com.palsaloid.dicodingstoryapp.ui.home.HomeViewModel
 
 class StoryViewModelFactory private constructor(
-    private val storyRepository: StoryRepository,
-    private val userPreference: UserPreference
+    private val storyRepository: StoryRepository
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
-            return HomeViewModel(storyRepository, userPreference) as T
+            return HomeViewModel(storyRepository) as T
         }
 
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
@@ -26,10 +25,10 @@ class StoryViewModelFactory private constructor(
         @Volatile
         private var instance: StoryViewModelFactory? = null
 
-        fun getInstance(context: Context, userPreference: UserPreference): StoryViewModelFactory =
+        fun getInstance(context: Context): StoryViewModelFactory =
             instance ?: synchronized(this) {
                 instance ?: StoryViewModelFactory(
-                    Injection.provideRepository(context), userPreference
+                    Injection.provideRepository(context)
                 )
             }.also { instance = it }
     }

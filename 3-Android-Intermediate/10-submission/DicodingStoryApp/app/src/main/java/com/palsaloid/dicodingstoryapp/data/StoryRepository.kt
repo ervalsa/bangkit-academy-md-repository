@@ -8,16 +8,17 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
 import com.palsaloid.dicodingstoryapp.data.Result
+import com.palsaloid.dicodingstoryapp.data.local.datastore.UserPreference
 import com.palsaloid.dicodingstoryapp.data.local.room.StoryDatabase
 import com.palsaloid.dicodingstoryapp.data.remote.response.story.StoryItem
 import com.palsaloid.dicodingstoryapp.data.remote.retrofit.ApiService
 
+@OptIn(ExperimentalPagingApi::class)
 class StoryRepository private constructor(
     private val apiService: ApiService,
     private val storyDatabase: StoryDatabase
 ) {
 
-    @OptIn(ExperimentalPagingApi::class)
     fun getStories(token: String) : LiveData<PagingData<StoryItem>> {
         return Pager(
             config = PagingConfig(

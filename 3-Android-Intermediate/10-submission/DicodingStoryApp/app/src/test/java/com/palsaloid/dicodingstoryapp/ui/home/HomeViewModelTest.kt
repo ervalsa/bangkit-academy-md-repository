@@ -20,6 +20,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -39,19 +40,16 @@ class HomeViewModelTest {
     @Mock
     private lateinit var storyRepository: StoryRepository
 
-    @Mock
-    private lateinit var userPreference: UserPreference
-
     @Test
     fun `when Get Story Should Not Null and Return Data`() = runTest {
         val dummyStory = DataDummy.generateDummyStoryResponse()
         val data: PagingData<StoryItem> = StoryPagingSource.snapshot(dummyStory)
         val expectedStory = MutableLiveData<PagingData<StoryItem>>()
         expectedStory.value = data
-        Mockito.`when`(storyRepository.getStories("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLTNoSkY1TzFYdXJiX3JwMmwiLCJpYXQiOjE2ODI2ODYzMjN9.KyDTuzA2xWshc1sRVrk6PmpCylnkXcbKAzNi_CTIIS8")).thenReturn(expectedStory)
+        Mockito.`when`(storyRepository.getStories("")).thenReturn(expectedStory)
 
-        val homeViewModel = HomeViewModel(storyRepository, userPreference)
-        val actualStory: PagingData<StoryItem> = homeViewModel.getStories.getOrAwaitValue()
+        val homeViewModel = HomeViewModel(storyRepository)
+        val actualStory: PagingData<StoryItem> = homeViewModel.getStories("").getOrAwaitValue()
 
         val differ = AsyncPagingDataDiffer(
             diffCallback = StoryAdapter.DIFF_CALLBACK,
@@ -70,10 +68,10 @@ class HomeViewModelTest {
         val data: PagingData<StoryItem> = PagingData.from(emptyList())
         val expectedStory = MutableLiveData<PagingData<StoryItem>>()
         expectedStory.value = data
-        Mockito.`when`(storyRepository.getStories("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLTNoSkY1TzFYdXJiX3JwMmwiLCJpYXQiOjE2ODI2ODYzMjN9.KyDTuzA2xWshc1sRVrk6PmpCylnkXcbKAzNi_CTIIS8")).thenReturn(expectedStory)
+        Mockito.`when`(storyRepository.getStories("")).thenReturn(expectedStory)
 
-        val homeViewModel = HomeViewModel(storyRepository, userPreference)
-        val actualStory: PagingData<StoryItem> = homeViewModel.getStories.getOrAwaitValue()
+        val homeViewModel = HomeViewModel(storyRepository)
+        val actualStory: PagingData<StoryItem> = homeViewModel.getStories("").getOrAwaitValue()
 
         val differ = AsyncPagingDataDiffer(
             diffCallback = StoryAdapter.DIFF_CALLBACK,
