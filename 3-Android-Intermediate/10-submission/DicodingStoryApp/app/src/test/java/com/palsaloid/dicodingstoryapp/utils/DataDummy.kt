@@ -22,4 +22,6 @@ object DataDummy {
 
         return items
     }
+
+    fun generateDummyToken() = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLXpwcW5yLU85dlNTT0ZTR2oiLCJpYXQiOjE2ODI0MzM2NjV9.mK484Q1LUMX_eG7Rc4KoZeyUMD_1hgz0F1xocBq7Fvs"
 }

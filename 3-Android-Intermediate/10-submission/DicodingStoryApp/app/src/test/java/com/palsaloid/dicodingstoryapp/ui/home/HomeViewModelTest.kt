@@ -43,13 +43,14 @@ class HomeViewModelTest {
     @Test
     fun `when Get Story Should Not Null and Return Data`() = runTest {
         val dummyStory = DataDummy.generateDummyStoryResponse()
+        val dummyToken = DataDummy.generateDummyToken()
         val data: PagingData<StoryItem> = StoryPagingSource.snapshot(dummyStory)
         val expectedStory = MutableLiveData<PagingData<StoryItem>>()
         expectedStory.value = data
-        Mockito.`when`(storyRepository.getStories("")).thenReturn(expectedStory)
+        Mockito.`when`(storyRepository.getStories(dummyToken)).thenReturn(expectedStory)
 
         val homeViewModel = HomeViewModel(storyRepository)
-        val actualStory: PagingData<StoryItem> = homeViewModel.getStories("").getOrAwaitValue()
+        val actualStory: PagingData<StoryItem> = homeViewModel.getStories(dummyToken).getOrAwaitValue()
 
         val differ = AsyncPagingDataDiffer(
             diffCallback = StoryAdapter.DIFF_CALLBACK,
@@ -65,13 +66,14 @@ class HomeViewModelTest {
 
     @Test
     fun `when Get Story Empty Should Return No Data`() = runTest {
+        val dummyToken = DataDummy.generateDummyToken()
         val data: PagingData<StoryItem> = PagingData.from(emptyList())
         val expectedStory = MutableLiveData<PagingData<StoryItem>>()
         expectedStory.value = data
-        Mockito.`when`(storyRepository.getStories("")).thenReturn(expectedStory)
+        Mockito.`when`(storyRepository.getStories(dummyToken)).thenReturn(expectedStory)
 
         val homeViewModel = HomeViewModel(storyRepository)
-        val actualStory: PagingData<StoryItem> = homeViewModel.getStories("").getOrAwaitValue()
+        val actualStory: PagingData<StoryItem> = homeViewModel.getStories(dummyToken).getOrAwaitValue()
 
         val differ = AsyncPagingDataDiffer(
             diffCallback = StoryAdapter.DIFF_CALLBACK,

@@ -25,6 +25,8 @@ class RegisterActivity : AppCompatActivity() {
             showLoading(it)
         }
 
+        binding.edtInputPassword.setButton(binding.btnRegister)
+
         binding.btnRegister.setOnClickListener {
             val name = binding.edtInputName.text.toString()
             val email = binding.edtInputEmail.text.toString()

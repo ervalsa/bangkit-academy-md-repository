@@ -6,9 +6,13 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
+import android.widget.Button
 import androidx.appcompat.widget.AppCompatEditText
+import com.palsaloid.dicodingstoryapp.R
 
 class CustomPasswordEditText : AppCompatEditText{
+
+    private var button: Button? = null
 
     constructor(context: Context): super(context) {
         init()
@@ -22,6 +26,11 @@ class CustomPasswordEditText : AppCompatEditText{
         attrs, defStyleSet
     ) {
         init()
+    }
+
+    fun setButton(button: Button) {
+        this.button = button
+        button.isEnabled = (text?.length ?: 0) >= 8
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -40,16 +49,22 @@ class CustomPasswordEditText : AppCompatEditText{
                     when {
                         sequence.length < 8 -> {
                             error = "Karakter kurang dari 8"
+                            button?.isEnabled = false
                         }
 
                         sequence.isEmpty() -> {
                             error = "Field ini tidak boleh kosong"
+                            button?.isEnabled = false
+                        }
+
+                        else -> {
+                            button?.isEnabled = true
                         }
                     }
                 }
             }
 
-            override fun afterTextChanged(p0: Editable?) {
+            override fun afterTextChanged(s: Editable?) {
                 // Do Nothing
             }
         })
