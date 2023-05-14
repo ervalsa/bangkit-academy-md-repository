@@ -1,14 +1,11 @@
 package com.palsaloid.dicodingstoryapp.data
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.map
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
-import com.palsaloid.dicodingstoryapp.data.Result
-import com.palsaloid.dicodingstoryapp.data.local.datastore.UserPreference
 import com.palsaloid.dicodingstoryapp.data.local.room.StoryDatabase
 import com.palsaloid.dicodingstoryapp.data.remote.response.story.StoryItem
 import com.palsaloid.dicodingstoryapp.data.remote.retrofit.ApiService

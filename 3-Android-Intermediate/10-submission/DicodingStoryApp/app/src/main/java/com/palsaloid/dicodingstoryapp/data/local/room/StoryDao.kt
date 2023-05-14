@@ -14,7 +14,7 @@ interface StoryDao {
     fun getStories() : PagingSource<Int, StoryItem>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertStory(news: List<StoryItem>)
+    suspend fun insertStory(stories: List<StoryItem>)
 
     @Query("DELETE FROM story")
     suspend fun deleteAll()

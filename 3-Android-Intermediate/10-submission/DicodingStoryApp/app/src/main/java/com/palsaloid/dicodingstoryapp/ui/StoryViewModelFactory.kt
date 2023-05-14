@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.palsaloid.dicodingstoryapp.data.StoryRepository
-import com.palsaloid.dicodingstoryapp.data.local.datastore.UserPreference
 import com.palsaloid.dicodingstoryapp.di.Injection
 import com.palsaloid.dicodingstoryapp.ui.home.HomeViewModel
 
