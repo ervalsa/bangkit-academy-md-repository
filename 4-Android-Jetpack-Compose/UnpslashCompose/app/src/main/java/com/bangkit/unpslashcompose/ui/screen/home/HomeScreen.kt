@@ -62,6 +62,7 @@ fun HomePhotoContent(
         items(photos) { data ->
             PhotoItem(
                 imageUrl = data.imageUrl,
+                name = data.name,
                 modifier = Modifier.clickable {
                     navigateToDetail(data.id)
                 }

@@ -12,7 +12,7 @@ class PhotoRepository {
     init {
         if (photos.isEmpty()) {
             FakePhotoDataSource.dummyPhotos.forEach {
-                photos.add(Photo(it.id, it.imageUrl))
+                photos.add(Photo(it.id, it.imageUrl, it.name, it.etalase, it.description))
             }
         }
     }
