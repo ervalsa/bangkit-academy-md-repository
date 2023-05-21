@@ -1,22 +1,23 @@
 package com.bangkit.unpslashcompose.model
 
+import com.bangkit.unpslashcompose.R
+
 object FakePhotoDataSource {
 
     val dummyPhotos = listOf(
-        Photo(1, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(2, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(3, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(4, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(5, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(6, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(7, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(8, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(9, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(10, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(11, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(12, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(13, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-        Photo(14, "https://plus.unsplash.com/premium_photo-1673002094288-6c4456aa9098?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"),
-
+        Photo(1, R.drawable.dummy_photo),
+        Photo(2, R.drawable.dummy_photo),
+        Photo(3, R.drawable.dummy_photo),
+        Photo(4, R.drawable.dummy_photo),
+        Photo(5, R.drawable.dummy_photo),
+        Photo(6, R.drawable.dummy_photo),
+        Photo(7, R.drawable.dummy_photo),
+        Photo(8, R.drawable.dummy_photo),
+        Photo(9, R.drawable.dummy_photo),
+        Photo(10, R.drawable.dummy_photo),
+        Photo(11, R.drawable.dummy_photo),
+        Photo(12, R.drawable.dummy_photo),
+        Photo(13, R.drawable.dummy_photo),
+        Photo(14, R.drawable.dummy_photo),
     )
 }

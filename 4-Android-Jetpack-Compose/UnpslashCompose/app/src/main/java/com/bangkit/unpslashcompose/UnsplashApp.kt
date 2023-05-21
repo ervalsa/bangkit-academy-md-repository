@@ -1,6 +1,7 @@
 package com.bangkit.unpslashcompose
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -11,67 +12,65 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.bangkit.unpslashcompose.ui.components.AppBar
-import com.bangkit.unpslashcompose.ui.components.DrawerBody
-import com.bangkit.unpslashcompose.ui.components.DrawerHeader
-import com.bangkit.unpslashcompose.ui.components.MenuItem
+import androidx.navigation.navArgument
+import com.bangkit.unpslashcompose.ui.navigation.BottomBar
 import com.bangkit.unpslashcompose.ui.navigation.Screen
+import com.bangkit.unpslashcompose.ui.screen.detail.DetailScreen
+import com.bangkit.unpslashcompose.ui.screen.home.HomeScreen
+import com.bangkit.unpslashcompose.ui.screen.profile.ProfileScreen
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun UnsplashApp(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavHostController = rememberNavController()
 ) {
-    val navController = rememberNavController()
-    val scaffoldState = rememberScaffoldState()
-    val scope = rememberCoroutineScope()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
 
     Scaffold(
         modifier = modifier,
-        scaffoldState = scaffoldState,
-        topBar = {
-            AppBar(
-                navController = navController,
-                onNavigationIconClick = {
-                    scope.launch {
-                        scaffoldState.drawerState.open()
-                    }
-                }
-            )
-        },
-        drawerGesturesEnabled = scaffoldState.drawerState.isOpen,
-        drawerContent = {
-            DrawerHeader()
-            DrawerBody(
-                items = listOf(
-                    MenuItem(
-                        id = "home",
-                        title = "Home",
-                        contentDescription = "Go to home screen",
-                        route = "home",
-                        icon = Icons.Default.Home
-                    ),
-                    MenuItem(
-                        id = "profile",
-                        title = "Profile",
-                        route = "profile",
-                        contentDescription = "Go to profile screen",
-                        icon = Icons.Default.Person
-                    ),
-                ),
-                onItemClick = {
-                    when (it.id) {
-                        "home" -> navController.navigate(Screen.Home.route)
-                        "profile" -> navController.navigate(Screen.Profile.route)
-                    }
-                }
-            )
+        bottomBar = {
+            if (currentRoute != Screen.DetailPhoto.route) {
+                BottomBar(navController)
+            }
         }
-    ) {
+    ) { innerPadding ->
+        NavHost(
+            navController = navController,
+            startDestination = Screen.Home.route,
+            modifier = Modifier.padding(innerPadding)
+        ) {
+            composable(Screen.Home.route) {
+                HomeScreen(
+                    navigateToDetail = { photoId ->
+                        navController.navigate(Screen.DetailPhoto.createRoute(photoId))
+                    }
+                )
+            }
 
+            composable(Screen.Profile.route) {
+                ProfileScreen()
+            }
+
+            composable(
+                route = Screen.DetailPhoto.route,
+                arguments = listOf(navArgument("photoId") { type = NavType.LongType })
+            ) {
+                val id = it.arguments?.getLong("photoId") ?: -1L
+                DetailScreen(
+                    photoId = id,
+                    navigateBack = {
+                        navController.navigateUp()
+                    },
+                )
+            }
+        }
     }
 }

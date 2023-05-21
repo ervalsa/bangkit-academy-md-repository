@@ -1,9 +1,30 @@
 package com.bangkit.unpslashcompose.data
 
+import com.bangkit.unpslashcompose.model.FakePhotoDataSource
+import com.bangkit.unpslashcompose.model.Photo
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
+
 class PhotoRepository {
 
-    fun getAllPhotos() {
+    private val photos = mutableListOf<Photo>()
 
+    init {
+        if (photos.isEmpty()) {
+            FakePhotoDataSource.dummyPhotos.forEach {
+                photos.add(Photo(it.id, it.imageUrl))
+            }
+        }
+    }
+
+    fun getAllPhotos(): Flow<List<Photo>> {
+        return flowOf(photos)
+    }
+
+    fun getPhotoById(photoId: Long): Photo {
+        return photos.first {
+            it.id == photoId
+        }
     }
 
     companion object {
