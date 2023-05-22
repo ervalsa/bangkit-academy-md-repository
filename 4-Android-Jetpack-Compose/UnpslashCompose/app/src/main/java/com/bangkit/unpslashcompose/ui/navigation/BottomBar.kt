@@ -31,12 +31,14 @@ fun BottomBar(
             NavigationItem(
                 title = stringResource(id = R.string.navigation_home),
                 icon = Icons.Default.Home,
-                screen = Screen.Home
+                screen = Screen.Home,
+                contentDescription = "home_page"
             ),
             NavigationItem(
                 title = stringResource(id = R.string.navigation_profile),
                 icon = Icons.Default.AccountCircle,
-                screen = Screen.Profile
+                screen = Screen.Profile,
+                contentDescription = "about_page"
             )
         )
 
