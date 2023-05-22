@@ -35,7 +35,7 @@ fun ProfileContent(
     ) {
         Image(
             painter = painterResource(id = image),
-            contentDescription = "Developer Photo",
+            contentDescription = "about_page",
             modifier = Modifier
                 .size(width = 100.dp, height = 100.dp)
         )
