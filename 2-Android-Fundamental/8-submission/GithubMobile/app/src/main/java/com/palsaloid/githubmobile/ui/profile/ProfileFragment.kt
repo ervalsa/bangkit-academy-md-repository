@@ -48,8 +48,8 @@ class ProfileFragment : Fragment() {
         }
 
         binding.btnSetting.setOnClickListener {
-            val toSetting = ProfileFragmentDirections.actionNavigationProfileToNavigationSetting()
-            findNavController().navigate(toSetting)
+//            val toSetting = ProfileFragmentDirections.actionNavigationProfileToNavigationSetting()
+//            findNavController().navigate(toSetting)
         }
     }
 

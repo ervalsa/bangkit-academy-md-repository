@@ -2,6 +2,7 @@ package com.dicoding.myunlimitedquotes.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +10,7 @@ import com.dicoding.myunlimitedquotes.databinding.ItemQuoteBinding
 import com.dicoding.myunlimitedquotes.network.QuoteResponseItem
 
 class QuoteListAdapter :
-    ListAdapter<QuoteResponseItem, QuoteListAdapter.MyViewHolder>(DIFF_CALLBACK) {
+    PagingDataAdapter<QuoteResponseItem, QuoteListAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemQuoteBinding.inflate(LayoutInflater.from(parent.context), parent, false)

@@ -32,9 +32,9 @@ class HomeAdapter(private val listUser: List<UserResponse>) : RecyclerView.Adapt
             .into(holder.imgProfile)
 
         holder.itemView.setOnClickListener {
-            val toDetailFragment = HomeFragmentDirections.actionNavigationHomeToNavigationDetail()
-            toDetailFragment.username = user.login.toString()
-            holder.itemView.findNavController().navigate(toDetailFragment)
+//            val toDetailFragment = HomeFragmentDirections.actionNavigationHomeToNavigationDetail()
+//            toDetailFragment.username = user.login.toString()
+//            holder.itemView.findNavController().navigate(toDetailFragment)
         }
     }
 

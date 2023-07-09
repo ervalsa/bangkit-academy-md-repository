@@ -26,16 +26,20 @@
             app:argType="string"
             android:defaultValue="default_id" />
     </fragment>
+
     <fragment
         android:id="@+id/navigation_setting"
         android:name="com.palsaloid.storydicoding.ui.setting.SettingFragment"
         tools:layout="@layout/fragment_setting" />
-    <fragment
-        android:id="@+id/navigation_map"
-        android:name="com.palsaloid.storydicoding.ui.maps.MapsFragment"
-        tools:layout="@layout/fragment_maps" />
+
     <fragment
         android:id="@+id/navigation_logout"
         android:name="com.palsaloid.storydicoding.ui.auth.logout.LogoutFragment"
         tools:layout="@layout/fragment_logout" />
+
+    <activity
+        android:id="@+id/navigation_activity_map"
+        android:name="com.palsaloid.storydicoding.ui.maps.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" />
 </navigation>
